@@ -298,7 +298,7 @@
         color: var(--blue-80-tint);
       }
 
-      .title {
+      .title__inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -306,22 +306,26 @@
         max-width: 438pt;
         margin-bottom: 24pt;
         padding: 3pt 25pt 0 25pt;
+        font-size: 41pt;
         border-bottom-left-radius: 35pt;
         border-top-right-radius: 31pt;
         background-color: var(--blue-100-tint);
         text-transform: uppercase;
         color: var(--yellow);
       }
+      
+      .title__dynamicMargin { height: 0; }
+      .title__inner.u-hide + .title__dynamicMargin { height: 106pt; }
 
       .title h1 {
-        font-size: 41pt;
+        font-size: 1em;
         font-weight: 900;
         line-height: 1em;
       }
 
       .title h2 {
         font-weight: bold;
-        font-size: 38.3pt;
+        font-size: 0.934em;
         line-height: 1em;
       }
 
@@ -650,9 +654,10 @@
             <div class="body__inner" data-max-height="dynamic">
               {{#BF_heading-back--pf}}
               <div class="title">
-                <div class="title__inner u-heading-patch" data-max-height="dynamic">
+                <div class="title__inner u-heading-patch" data-max-line="2">
                   {{{BF_heading-back--pf}}}
                 </div><!--title__inner-->
+                <div class="title__dynamicMargin"></div>
               </div><!--title-->
               {{/BF_heading-back--pf}}
               <div class="subheading subheading--secondary" data-max-line="4">{{{BF_subheading-back--pf}}}</div><!--subheading--secondary-->
