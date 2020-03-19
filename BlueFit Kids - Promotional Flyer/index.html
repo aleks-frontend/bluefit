@@ -383,11 +383,12 @@
       }
 
       .location__text,
-      .address{
-        display: none;
+      .address {        
         font-size: 11.4pt;
         line-height: 1.2em;
       }
+      
+      .address { display: none; }
 
       .location--emmaus-catholic-primary-school .location__text--1,
       .location--st-catherines-primary-school .location__text--2,
@@ -553,6 +554,7 @@
       /* Helper classes */
       .u-hide { display: none; }
       .u-bold { font-weight: bold; }
+      .u-width-60 { width: 60%; }
       
       /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
     </style>
@@ -584,17 +586,13 @@
             {{/BF_background-image--pf}}
             <div class="body__bottom">
               <div class="content" data-max-height="dynamic">
-                <div class="location">
+                <div class="location js-location-controller-container">
                   <img class="location__icon" src="https://files.outfit.io/media_library_items/170289/BFK-PF-checkpoint.svg">
-                  <div class="location__text location__text--1"><span class="u-bold">Emmaus Catholic Primary School</span><br>370 Sydenham Road,<br>Sydenham, VIC 3037</div><!--location__text-->
-                  <div class="location__text location__text--2"><span class="u-bold">St Catherines Primary School</span><br>2 Lascelles Drive,<br>Lalor West, VIC 3075</div><!--location__text-->
-                  <div class="location__text location__text--3"><span class="u-bold">Arkana College Primary School</span><br>342-346 Stoney Creek Road,<br>Kingsgrove, NSW 2208</div><!--location__text-->
-                  <div class="location__text location__text--4"><span class="u-bold">Rivervale Primary School</span><br>99 Acton Avenue,<br>Rivervale, WA 6103</div><!--location__text-->
-                  <div class="location__text location__text--5"><span class="u-bold">Forrestfield Primary School</span><br>45 Sussex Road,<br>Forrestfield, WA 6058</div><!--location__text-->
-                  <div class="location__text location__text--6"><span class="u-bold">Woodlupine Primary School</span><br>29 Solandra Way,<br>Forrestfield, WA 6058</div><!--location__text-->
-                  <div class="location__text location__text--7"><span class="u-bold">Hurstville Aquatic Leisure Centre</span><br>King Georges Rd & Forest Rd<br>Hurstville, NSW 2220</div><!--location__text-->
-                  <div class="location__text location__text--8"><span class="u-bold">Belmont Oasis Leisure Centre</span><br>1 Progress Way,<br>Belmont, WA 6104</div><!--location__text-->
-                  <div class="address" data-max-height="61">{{{BF_custom-address--pf}}}</div><!--location__text-->
+                  <div class="location__text location__text--1">
+                    <span class="u-bold js-location-controller-label"></span>
+                    <div class="js-location-controller-address u-width-60"></div>
+                  </div><!--location__text-->
+                  <div class="address js-location-controller-custom-address" data-max-height="61">{{{BF_custom-address--pf}}}</div><!--location__text-->
                 </div><!--location-->
                 <div class="copy" data-max-line="5">{{{BF_copy--pf}}}</div><!--copy-->
                 <table class="sessionDetails">
@@ -744,6 +742,67 @@
       setInterval(() => {
         customOrderedList();
       }, 1000);
+      
+      function locationController() {
+        const location = '{{BF_location--pf}}' || 'emmaus-catholic-primary-school';
+        console.log(location);
+        const containers = document.querySelectorAll('.js-location-controller-container');
+        const locationsObj = {
+          'emmaus-catholic-primary-school': {
+            label: 'Emmaus Catholic Primary School',
+            address: '370 Sydenham Road, Sydenham, 3037',
+          },
+          'st-catherines-primary-school': {
+            label: 'St Catherines Primary School',
+            address: '2 Lascelles Drive, Lalor West, 3075',
+          },
+          'arkana-college-primary-school': {
+            label: 'Arkana College Primary School',
+            address: '342-346 Stoney Creek Road, Kingsgrove 2208',
+          },
+          'rivervale-primary-school': {
+            label: 'Rivervale Primary School',
+            address: '99 Acton Avenue, Rivervale 6103',
+          },
+          'forrestfield-primary-school': {
+            label: 'Forrestfield Primary School',
+            address: '45 Sussex Road, Forrestfield 6058',
+          },
+          'woodlupine-primary-school': {
+            label: 'Woodlupine Primary School',
+            address: '29 Solandra Way, Forrestfield 6058',
+          },
+          'hurstville-aquatic-leisure-centre': {
+            label: 'Hurstville Aquatic Leisure Centre',
+            address: 'King Georges Rd & Forest Rd, Hurstville 2220',
+          },
+          'belmont-oasis-leisure-centre': {
+            label: 'Belmont Oasis Leisure Centre',
+            address: '1 Progress Way, Belmont 6104',
+          },          
+        }
+
+        containers.forEach(container => {
+          const label = container.querySelector('.js-location-controller-label');
+          const address = container.querySelector('.js-location-controller-address');
+          const customAddress = container.querySelector('.js-location-controller-custom-address');
+          
+          if ( location === 'custom-address' ) {
+            customAddress.style.display = 'block';
+            label.style.display = 'none';
+            address.style.display = 'none';
+          } else {
+            customAddress.style.display = 'none';
+            label.style.display = 'block';
+            address.style.display = 'block';            
+
+            label.innerText = locationsObj[location]['label'];
+            address.innerText = locationsObj[location]['address'];
+          }          
+        });
+      }
+      
+      locationController();      
 
       // Tracking text changes and firing text restriction functions (mutationObserver)
       const overflowObserver = new MutationObserver(function(mutations) {
