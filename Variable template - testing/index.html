@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-sign="OSZ">
+<html data-sign="OSZ" async>
   <head>
     <title>Template title</title>
     <meta charset="utf-8">
@@ -23,6 +23,8 @@
       {{placeholder-image-4}}
       {{placeholder-image-5}}
       {{placeholder-image-6}}
+      {{placeholder-image-7}}
+      {{placeholder-image-8}}
       {{placeholder-toggle-new-2}}
       {{placeholder-validation-2}}
       {{{BF_toggle-endorsed-brands--var}}}
@@ -52,6 +54,7 @@
       {{{BF_footer-left-side-image--var}}}
       {{{BF_footer-right-side-image--var}}}
       {{{BF_footer-text--var}}}
+      {{{BF_footer-text-football--var}}}
       {{{BF_contact-blurb-colour--var}}}
       {{{BF_contact-blurb--var}}}
 
@@ -64,6 +67,7 @@
         --tint-80: {{{account.colors.blue-80-tint}}};
         --tint-100: #073763;
         --swim-blue: #1db5da;
+        --football-blue: #39c0c0;
         --yellow: #fbe70c;
         --red-primary: {{{account.colors.flipit-secondary-1}}};
         --southern-secondary-1: {{{account.colors.southern-education-secondary-1}}};
@@ -86,7 +90,6 @@
         clip-path: circle(95.2% at 51.2% 116%);
       }
 
-
       .backgroundImage {
         position: absolute;
         top: 0;
@@ -94,7 +97,6 @@
         left: 0;
         right: 0;
         overflow: hidden;
-        z-index: -1;
       }
 
       .backgroundImage div {
@@ -106,6 +108,7 @@
 
       .backgroundImage--swimSchool {
         bottom: 63%;
+        z-index: -1;
       }
 
       .backgroundImage--basketball {
@@ -120,7 +123,9 @@
       .toggleBrands--gymnastics .page--gymnastics, 
       .toggleBrands--swimSchool .page--swimSchool,
       .toggleBrands--golf .page--golf,
-      .toggleBrands--basketball .page--basketball {
+      .toggleBrands--basketball .page--basketball,
+      .toggleBrands--football .page--football,
+      .toggleBrands--custom .page--custom {
         display: block;
       }
 
@@ -134,19 +139,29 @@
         background-size: 100% 92%;
       }
 
+      .fit--football {
+        background:{{{BF_header-colour--var}}}{{^BF_header-colour--var}}var(--football-blue){{/BF_header-colour--var}};
+      }
+
       .decoration {
         position: absolute;
         pointer-events: none;
       }
+
+      .decoration--swimming,
+      .decoration--golfer,
+      .decoration--player, 
+      .decoration--ball {
+        background-position: center;
+        background-repeat: no-repeat;
+      } 
 
       .decoration--swimming {
         width: 231pt;
         height: 238pt;
         top: -186pt;
         right: -8pt;
-        background-position: center;
         background-size: cover;
-        background-repeat: no-repeat;
         background-image: url(https://files.outfit.io/media_library_items/171876/BF-swimschool-fish.svg);
       } 
 
@@ -167,6 +182,43 @@
         left: -14pt;
       }
 
+      .decoration--golfer,
+      .decoration--player, 
+      .decoration--ball {
+        background-size: contain;
+      } 
+
+      .decoration--golfer {
+        height: 640pt;
+        width: 388pt;
+        bottom: -18pt;
+        left: 1pt;
+        background-image: url(https://files.outfit.io/media_library_items/176212/golf%2520kid%2520copy%2520%25281%2529.png);
+      }
+
+      .decoration--player {
+        height: 844pt;
+        width: 100%;
+        top: -3pt;
+        left: -55pt;
+        background-image: url(https://files.outfit.io/media_library_items/171866/BF-StrikeFootball-player.svg);
+      }
+
+      .decoration--ball {
+        height: 193pt;
+        width: 218pt;
+        top: 41pt;
+        right: 0pt;
+        background-image: url(https://files.outfit.io/media_library_items/176208/football-ball.png);
+      }
+
+      .decoration--football.decoration--footer {
+        height: 193pt;
+        width: 100%;
+        bottom: 268pt;
+        left: -189pt;
+      }
+
       .decoration--gymnastics svg {
         width: 1300pt;
         height: 496pt;
@@ -175,6 +227,11 @@
       .decoration--swimSchool svg {
         width: 626pt;
         height: 238pt;
+      }
+
+      .decoration--football.decoration--footer svg {
+        width: 803pt;
+        height: 711pt;;
       }
 
       .decoration--gymnastics .path {
@@ -187,6 +244,10 @@
 
       .decoration--swimSchool .path {
         fill: {{{BF_footer-background-colour--var}}}{{^BF_footer-background-colour--var}}var(--swim-blue){{/BF_footer-background-colour--var}};
+      }
+
+      .decoration--football .stripes {
+        fill: {{{BF_header-colour--var}}}{{^BF_header-colour--var}}var(--football-blue){{/BF_header-colour--var}};
       }
 
       .image {
@@ -202,7 +263,6 @@
         width: 357pt;
         height: 403pt;
         background-image: url({{{BF_footer-right-side-image--var}}});
-        z-index: 2;
       }
 
       .image--swimSchool {
@@ -234,6 +294,14 @@
         background-image: url({{{BF_footer-left-side-image--var}}});
       }
 
+      .image--football {
+        top: -356pt;
+        right: 31pt;
+        width: 238pt;
+        height: 532pt;
+        background-image: url({{{BF_footer-right-side-image--var}}});
+        z-index: 2;
+      }
 
       .header {
         display: flex;
@@ -257,11 +325,15 @@
 
       .header--golf {
         margin-bottom: 32pt;
-        padding: 63pt 20pt 26pt 61pt
+        padding: 63pt 20pt 26pt 61pt;
       }
 
-      .headerBackground {
-
+      .header--football {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -145pt;
+        padding: 44.4pt 41pt 26pt;
       }
 
       .header__background--swimming,
@@ -307,6 +379,17 @@
         letter-spacing: 0.05em;
         font-weight: 500;
         line-height: 0.9em;
+        z-index: 1;
+      }
+
+      .header__text--football {
+        width: 365pt;
+        margin-bottom: 14pt;
+        font-family: "TypoGraphica";
+        font-size: 112.7pt;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        line-height: 0.95em;
       }
 
       .header__text--gymnastics h1 {
@@ -336,44 +419,39 @@
         color: {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--red-primary){{/BF_dynamic-text-colour--var}};
       }
 
-      .header__text--golf .tinymce_style--dark {
+      .header__text--golf .tinymce_style--dark,
+      .header__text--football .tinymce_style--dark {
         color: {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--tint-100){{/BF_dynamic-text-colour--var}};
       }
 
       .body {
         flex: 1;
+        display: flex;
+        flex-direction: column;
         position: relative;
       }
 
       .body--swimming {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        padding: 0pt 39pt;     
+        padding: 0pt 43.4pt;     
         text-align: center;
       }
 
       .body--gymnastics {
-        display: flex;
-        flex-direction: column;
         padding: 0pt 38pt;     
       }
 
       .body--swimSchool {
-        display: flex;
-        flex-direction: column;
         padding: 295pt 43pt 0pt 47pt;
         overflow: hidden;
       } 
 
       .body--golf {
-        flex-direction: column;
         padding: 0pt 73pt 170pt 191pt;
       }
 
       .body--basketball {
-        flex-direction: column;
-        padding: 41pt 38pt 41pt 49pt;
+        padding: 41pt 38pt 295pt 49pt;
         background-image: url(https://files.outfit.io/media_library_items/171893/BF-SwissBasketball-bacground.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -396,20 +474,25 @@
         letter-spacing: 0.02em;
         line-height: 1em;
         color: var(--white);
-        -webkit-text-stroke: 0.1pt {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--orange){{/BF_dynamic-text-colour--var}};
+        -webkit-text-stroke: 1pt {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--orange){{/BF_dynamic-text-colour--var}};
       }
 
       .title--basketball .tinymce_style--dark {
         color: {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--orange){{/BF_dynamic-text-colour--var}};
+        -webkit-text-stroke: 1pt var(--white);
+      }
+
+      .title--basketball .tinymce_style--dark strong,
+      .title--basketball strong {
         -webkit-text-stroke: 0.1pt var(--white);
       }
 
       .heading__container {
         position: relative;
+        display: flex;
       }
 
       .heading__container--swimming {
-        display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 15pt;
@@ -419,7 +502,6 @@
       }
 
       .heading__container--swimSchool {
-        display: flex;
         justify-content: center;
         margin-bottom: 30pt;
       }
@@ -503,27 +585,28 @@
       }
 
       .content {
-
+        display: flex;
       }
 
       .content--swimming {
-        display: flex;
         justify-content: center;
-      }
-
-      .content--basketball {
-        display: flex;
       }
 
       .copy {
         position: relative;
-      }  
+      } 
+
+      .copy--swimming,
+      .copy--swimSchool,
+      .copy--golf,
+      .copy--basketball {
+        color: var(--white);
+      }
 
       .copy--swimming {
         flex: 1;
         max-height: 135pt;
         padding: 7pt 10pt 10pt;
-        color: var(--white);
       }
 
       .copy--gymnastics {
@@ -532,21 +615,14 @@
         color: var(--tint-100);
       }
 
-      .copy--swimSchool {
-        margin-bottom: 26pt;
-        color: var(--white);
-      }
-
+      .copy--swimSchool,
       .copy--golf {
         margin-bottom: 26pt;
-        color: var(--white);
       }
 
       .copy--basketball {
         flex: 1;
         padding: 8pt 6pt 92pt 3pt;
-        color: var(--white);
-        z-index: 1;
       }
 
       .copy--swimming h3 {
@@ -867,13 +943,11 @@
       }
 
       .cta--swimSchool {
-        position: absolute;
-        top: 0pt;
-        left: calc(0.72 * {{{BF_cta-position--var}}}{{^BF_cta-position--var}}100{{/BF_cta-position--var}}%);
+        position: relative;
+        margin-left: 14pt;
         width: 143pt;
         height: 143pt;
         padding: 28pt 15pt 20pt;
-        z-index: 2;
       }
 
       .cta--golf {
@@ -893,28 +967,47 @@
         z-index: 1;
       }
 
+      .cta--football {
+        /* position: absolute;
+        bottom: 0pt;
+        left: calc((0.59 * {{{BF_cta-position--var}}}{{^BF_cta-position--var}}0{{/BF_cta-position--var}}%) + 5.4%); */
+        position: relative;
+        margin-left: calc((4.78px * {{{BF_cta-position--var}}}{{^BF_cta-position--var}}0{{/BF_cta-position--var}}) - 8px);
+        width: 186pt;
+        height: 186pt;
+        padding: 34pt 19pt 37pt;
+        z-index: 1;
+      }
+
       .ctaTheme--fullColour .cta--swimming {
         color: var(--tint-100);
         background-color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--white){{/BF_call-to-action-colour--var}};
+      }
 
+      .ctaTheme--fullColour .cta--gymnastics,
+      .ctaTheme--fullColour .cta--swimSchool,
+      .ctaTheme--fullColour .cta--golf,
+      .ctaTheme--fullColour .cta--basketball,
+      .ctaTheme--fullColour .cta--football {
+        color: var(--white);
       }
 
       .ctaTheme--fullColour .cta--gymnastics {
-        color: var(--white);
         background-color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--red-primary){{/BF_call-to-action-colour--var}};
         border: 4pt solid var(--white);
       }   
 
       .ctaTheme--fullColour .cta--swimSchool,
       .ctaTheme--fullColour .cta--golf {
-        color: var(--white);
         background-color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--swim-blue){{/BF_call-to-action-colour--var}};
       }
 
       .ctaTheme--fullColour .cta--basketball {
-        color: var(--white);
         background-color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--orange){{/BF_call-to-action-colour--var}};
+      }
 
+      .ctaTheme--fullColour .cta--football {
+        background-color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--tint-100){{/BF_call-to-action-colour--var}};
       }
 
       .ctaTheme--outline .cta--swimming {
@@ -942,8 +1035,10 @@
         border: 7pt solid {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--orange){{/BF_call-to-action-colour--var}};
       }
 
-      .cta__text {
-
+      .ctaTheme--outline .cta--football {
+        background-color: var(--white);
+        color: {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--tint-100){{/BF_call-to-action-colour--var}};
+        border: 7pt solid {{{BF_call-to-action-colour--var}}}{{^BF_call-to-action-colour--var}}var(--tint-100){{/BF_call-to-action-colour--var}};
       }
 
       .cta__text--swimming  {
@@ -968,6 +1063,10 @@
 
       .cta__text--basketball {
         max-height: 120pt;
+      }
+
+      .cta__text--football {
+        max-height: 140pt;
       }
 
       .cta__text--swimming h3 {
@@ -1004,33 +1103,44 @@
         line-height: 0.9em;
       }
 
+      .cta__text--football h3 {
+        margin-bottom: 0.1em;
+        font-family: "TypoGraphica";
+        font-size: 48.9pt;
+        letter-spacing: 0.01em;
+        line-height: 0.9em
+      }
+
       .cta__text h3:last-child {
         margin-bottom: 0;
       }
 
       .cta__text--swimming p {
+        line-height: 1.3em;
+      }
+
+      .cta__text--swimming p {
         font-size: 9.8pt;
-        line-height: 1.4em;
       }
 
       .cta__text--gymnastics p {
         font-size: 17pt;
-        line-height: 1.3em;
       }
 
       .cta__text--swimSchool p {
         font-size: 15pt;
-        line-height: 1.3em;
       }
 
       .cta__text--golf p {
         font-size: 15pt;
-        line-height: 1.3em;
       }
 
       .cta__text--basketball p {
         font-size: 20pt;
-        line-height: 1.3em;
+      }
+
+      .cta__text--football p {
+        font-size: 20pt;
       }
 
       .cta__text--golf strong {
@@ -1047,7 +1157,7 @@
         align-items: center;
         width: 100%;
         height: 88pt;
-        padding: 0pt 103pt;
+        padding: 0pt 100pt;
       }
 
       .contactBackground {
@@ -1055,7 +1165,6 @@
       }
 
       .contactBackground--swimming {
-        position: absolute;
         top: -4pt;
         left: 50%;
         transform: translatex(-49%);
@@ -1066,7 +1175,7 @@
         height: 88pt;
       }
 
-      .contact__path {
+      .contactBackground--swimming .path {
         fill: {{{BF_contact-blurb-colour--var}}}{{^BF_contact-blurb-colour--var}}var(--purple){{/BF_contact-blurb-colour--var}};
       }
 
@@ -1086,7 +1195,6 @@
       .contact--swimming .tinymce_style--dark {
         color: {{{BF_subheading-text-colour--var}}}{{^BF_subheading-text-colour--var}}var(--yellow){{/BF_subheading-text-colour--var}};
       }
-
 
       .footer {
         display: flex;
@@ -1130,10 +1238,19 @@
         background-color: {{{BF_footer-background-colour--var}}}{{^BF_footer-background-colour--var}}var(--orange){{/BF_footer-background-colour--var}};
       }
 
+      .footer--football {
+        height: 423pt;        
+        padding: 210pt 52pt 37pt;
+      }
+
       .footer__text--gymnastics {
         font-size: 21.8pt;
         line-height: 1.2em;
         color: {{{BF_dynamic-text-colour--var}}}{{^BF_dynamic-text-colour--var}}var(--red-primary){{/BF_dynamic-text-colour--var}};
+      }
+
+      .footer--football .polygon {
+        fill: {{{BF_footer-background-colour--var}}}{{^BF_footer-background-colour--var}}var(--tint-100){{/BF_footer-background-colour--var}};
       }
 
       .footer__text--swimSchool {
@@ -1160,6 +1277,14 @@
         color: var(--white);
       }
 
+      .footer__text--football p {
+        position: relative;
+        margin-bottom: 32pt;
+        font-size: 13.2pt;
+        line-height: 1.2em;
+        color: var(--white);
+      }
+
       .footer__text a {
         text-decoration: none;
       }
@@ -1174,13 +1299,22 @@
         color: var(--tint-100);
       }
 
-      .footer__text--golf a {
+      .footer__text--golf a,
+      .footer__text--football a {
         font-family: "TypoGraphica";
-        font-size: 21.5pt;
-        letter-spacing: 0.175em;
         font-weight: 500;
         line-height: 1.2em;
         color: var(--white);
+      }
+
+      .footer__text--golf a {
+        font-size: 21.5pt;
+        letter-spacing: 0.175em;
+      }
+
+      .footer__text--football a {
+        font-size: 16.8pt;
+        letter-spacing: 0.07em;
       }
 
       .footer__text--basketball a {
@@ -1189,6 +1323,11 @@
 
       .footer__text strong {
         font-weight: bold;
+      }
+
+      .footer__text--football p:last-child,
+      .footer__text--football a:last-child {
+        margin-bottom: 0;
       }
 
       .logo,
@@ -1203,24 +1342,30 @@
         height: 100%;
       }
 
-      .logo--swimming {
-        width: 100pt;
+      .logo--swimming,
+      .logo--gymnastics,
+      .logo--swimSchool,
+      .logo--golf,
+      .logo--basketball {
         background-image: url({{{BF_logo--var}}});
+      }
+
+      .logo--swimming {
+        width: 170pt;
         background-position: bottom right;
       }
 
       .logo--gymnastics {
         margin-top: 12pt;
+        margin-left: 25pt;
         width: 200pt;
         height: 67pt;
-        background-image: url({{{BF_logo--var}}});
         background-position: top right;
       }
 
       .logo--swimSchool {
         width: 172pt;
         height: 66pt;
-        background-image: url({{{BF_logo--var}}});
         background-position: bottom right;
       }
 
@@ -1228,8 +1373,15 @@
         margin-bottom: 14pt;
         width: 123pt;
         height: 68pt;
-        background-image: url({{{BF_logo--var}}});
         background-position: bottom right;
+      }
+
+      .logo--football {
+        margin-bottom: 22pt;
+        width: 165pt;
+        height: 76pt;
+        background-image: url(https://files.outfit.io/media_library_items/171874/BF-StrikeFootball-logo.svg);
+        background-position: top left;
       }
 
       .logo--basketball {
@@ -1237,7 +1389,6 @@
         margin-top: -17pt;
         width: 123pt;
         height: 82pt;
-        background-image: url({{{BF_logo--var}}});
         background-position: top right;
       }
 
@@ -1356,6 +1507,8 @@
       <div class="placeholderMaster__item" data-bg="{{ placeholder-image-4 }}"></div>
       <div class="placeholderMaster__item" data-bg="{{ placeholder-image-5 }}"></div>
       <div class="placeholderMaster__item" data-bg="{{ placeholder-image-6 }}"></div>
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-7 }}"></div>
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-8 }}"></div>
     </div><!-- end placeholderMaster -->
     <div class="page page--swimming">
 
@@ -1398,7 +1551,7 @@
               {{#BF_contact-blurb--var}}
               <div class="contact__container contact__container--swimming">
                 <div class="contactBackground contactBackground--swimming">
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350.3189" height="86.2458" viewBox="0 0 350.3189 86.2458"><defs><style>.cls-1{fill:none;}.cls-2{isolation:isolate;}.cls-3{clip-path:url(#clip-path);}.cls-4{opacity:0.12;mix-blend-mode:multiply;}.cls-5{clip-path:url(#clip-path-2);}.cls-6{fill:#333;}</style><clipPath id="clip-path" transform="translate(-0.0002 0.0002)"><rect class="cls-1" width="350.32" height="86.245"/></clipPath><clipPath id="clip-path-2" transform="translate(-0.0002 0.0002)"><rect class="cls-1" x="4.629" y="5.97" width="345.69" height="80.2752"/></clipPath></defs><g class="cls-2"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-3"><g class="cls-4"><g class="cls-5"><g class="cls-5"><path class="cls-6" d="M344.2349,84.4266l-332.678,1.809c-3.574.21-6.692-2.912-6.927-6.934l.614-65.636c-.236-4.023,2.495-7.486,6.069-7.695l331.389,9.799c3.574-.209,6.692,2.911,6.927,6.934l.676,54.028c.236,4.022-2.496,7.485-6.07,7.695" transform="translate(-0.0002 0.0002)"/></g></g></g><path class="contact__path" d="M339.0054,78.4558,10.77,84.7118c-3.575.21-6.692-2.91-6.927-6.934L.0144,7.6948C-.2216,3.6718,2.5094.2088,6.0844,0l335.182,15.069c3.574-.209,6.692,2.911,6.927,6.934l-3.118,48.758c.236,4.023-2.496,7.486-6.07,7.695" transform="translate(-0.0002 0.0002)"/></g></g></g></g></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350.3189" height="86.2458" viewBox="0 0 350.3189 86.2458"><defs><style>.cls-1{fill:none;}.cls-12{isolation:isolate;}.cls-3{clip-path:url(#clip-path);}.cls-4{opacity:0.12;mix-blend-mode:multiply;}.cls-5{clip-path:url(#clip-path-2);}.cls-6{fill:#333;}</style><clipPath id="clip-path" transform="translate(-0.0002 0.0002)"><rect class="cls-1" width="350.32" height="86.245"/></clipPath><clipPath id="clip-path-2" transform="translate(-0.0002 0.0002)"><rect class="cls-1" x="4.629" y="5.97" width="345.69" height="80.2752"/></clipPath></defs><g class="cls-12"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-3"><g class="cls-4"><g class="cls-5"><g class="cls-5"><path class="cls-6" d="M344.2349,84.4266l-332.678,1.809c-3.574.21-6.692-2.912-6.927-6.934l.614-65.636c-.236-4.023,2.495-7.486,6.069-7.695l331.389,9.799c3.574-.209,6.692,2.911,6.927,6.934l.676,54.028c.236,4.022-2.496,7.485-6.07,7.695" transform="translate(-0.0002 0.0002)"/></g></g></g><path class="path" d="M339.0054,78.4558,10.77,84.7118c-3.575.21-6.692-2.91-6.927-6.934L.0144,7.6948C-.2216,3.6718,2.5094.2088,6.0844,0l335.182,15.069c3.574-.209,6.692,2.911,6.927,6.934l-3.118,48.758c.236,4.023-2.496,7.486-6.07,7.695" transform="translate(-0.0002 0.0002)"/></g></g></g></g></svg>
                 </div> <!--heading__background-->
                 <div class="contact contact--swimming" data-max-line="2">{{{BF_contact-blurb--var}}}</div> <!--contact -->
               </div> <!--contact__container-->
@@ -1430,7 +1583,7 @@
             {{/BF_cta-text--var}}
           </div> <!--header-->
           <div class="decoration decoration--gymnastics">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1205.2085" height="491.5452" viewBox="0 0 1205.2085 491.5452"><defs><style>.cls-2{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="path" d="M1014.0305,383.7242c-66.485-55.144-93.062-155.0351-275.062-154.458-368.6209,21.198-451.1049-43.791-453.133-44.5641,10.3631-33.7149.7281,36.659,7.4111-17.7809l258.8649,28.82s144.0321-82.776,397.738-15.2169c69.442,39.689,84.93,231.142,221.571,295.476q17.3385,8.1645,33.788,15.545c-67.259-25.596-135.057-61.272-191.178-107.821"/><path class="path" d="M201.031,63.147c76.055,40.948,97.706,133.882,379.553,74.754,331.452-90.91,414.3439-2.739,410.8959,8.35-3.5089,35.099-6.1069-5.184-1.9219,49.505L698.61,161.184s-102.267,35.025-364.315,18.831C258.39,154.801,182.837,44.698,36.19,8.577Q17.581,3.993,0,0C70.986,11.83,136.83,28.581,201.031,63.147"/><path class="cls-2" d="M302.9811,142.62s65.274,53.446,284.041,8.811c0,0,175.344-32.664,241.288-23.796,113.764,8.36,132.87,32.033,140.937,37.823,23.184,16.639-36.501,33.741-4.83,85.397,0,0-106.523-88.337-279.691-58.794-174.054,24.366-301.369,19.565-392.426-26.829Z"/></g></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1205.2085" height="491.5452" viewBox="0 0 1205.2085 491.5452"><defs><style>.cls-stroke{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="path" d="M1014.0305,383.7242c-66.485-55.144-93.062-155.0351-275.062-154.458-368.6209,21.198-451.1049-43.791-453.133-44.5641,10.3631-33.7149.7281,36.659,7.4111-17.7809l258.8649,28.82s144.0321-82.776,397.738-15.2169c69.442,39.689,84.93,231.142,221.571,295.476q17.3385,8.1645,33.788,15.545c-67.259-25.596-135.057-61.272-191.178-107.821"/><path class="path" d="M201.031,63.147c76.055,40.948,97.706,133.882,379.553,74.754,331.452-90.91,414.3439-2.739,410.8959,8.35-3.5089,35.099-6.1069-5.184-1.9219,49.505L698.61,161.184s-102.267,35.025-364.315,18.831C258.39,154.801,182.837,44.698,36.19,8.577Q17.581,3.993,0,0C70.986,11.83,136.83,28.581,201.031,63.147"/><path class="cls-stroke" d="M302.9811,142.62s65.274,53.446,284.041,8.811c0,0,175.344-32.664,241.288-23.796,113.764,8.36,132.87,32.033,140.937,37.823,23.184,16.639-36.501,33.741-4.83,85.397,0,0-106.523-88.337-279.691-58.794-174.054,24.366-301.369,19.565-392.426-26.829Z"/></g></g></svg>
           </div> <!--decoration-->
           <div class="body body--gymnastics">
             <div class="image image--gymnastics"></div> <!--image-->
@@ -1459,7 +1612,7 @@
         <div class="container fit fit--swimSchool">
           <div class="backgroundImage backgroundImage--swimSchool"><div class="reposition-fix">{{{BF_background-image-swim-school--var}}}</div></div> <!--backgroundImage-->
           <div class="body body--swimSchool">
-            <div class="body__inner body__inner--swimSchool" data-max-height="611">
+            <div class="body__inner body__inner--swimSchool" data-max-height="620">
               {{#BF_heading--var}}
               <div class="heading__container heading__container--swimSchool">
                 <div class="heading heading--swimSchool" data-max-line="1">
@@ -1529,7 +1682,7 @@
               <div class="copy copy--golf u-heading-patch">{{{BF_body-copy--var}}}</div> <!--copy-->
             </div> <!--content-->
             {{/BF_body-copy--var}}
-            <div class="golfer golfer--golf"></div> <!--golfer-->
+            <div class="decoration decoration--golfer"></div> <!--golfer-->
             {{#BF_cta-text--var}}
             <div class="cta cta--golf">
               <div class="cta__text cta__text--golf u-heading-patch" data-max-height="css">{{{BF_cta-text--var}}}</div> <!--cta__text-->
@@ -1588,6 +1741,49 @@
 
     </div><!--page-->
 
+    <div class="page page--football">
+
+      <div class="bleed">
+
+        <div class="container fit fit--football">
+          <div class="header header--football">
+            <div class="decoration decoration--player decoration--football"></div> <!--decoration-->
+            <div class="decoration decoration--ball decoration--football"></div> <!--decoration-->
+            <div class="logo logo--football"></div> <!--logo-->
+            {{#BF_header--var}}
+            <div class="header__text header__text--football" data-max-line="2">{{{BF_header--var}}}</div> <!--header__text-->
+            {{/BF_header--var}}
+            {{#BF_cta-text--var}}
+            <div class="cta cta--football">
+              <div class="cta__text cta__text--football" data-max-height="css">{{{BF_cta-text--var}}}</div> <!--cta__text-->
+            </div> <!--cta-->
+            {{/BF_cta-text--var}}
+          </div> <!--header-->
+          <div class="footer footer--football">
+            <div class="decoration decoration--footer decoration--football">
+              <svg xmlns="http://www.w3.org/2000/svg" width="777.1468" height="616.1909" viewBox="0 0 777.1468 616.1909"><defs><style>.cls-2{opacity:0.1;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="polygon" points="181.871 185.352 181.871 411.689 777.147 411.689 777.147 0 181.871 185.352"/><g class="cls-2"><polygon class="stripes" points="713.798 231.999 54.143 436.233 63.1 462.702 713.798 231.999"/><polygon class="stripes" points="732.007 283.283 72.311 487.396 81.267 513.866 732.007 283.283"/><polygon class="stripes" points="749.621 332.816 90.477 538.561 99.433 565.029 749.621 332.816"/><polygon class="stripes" points="768.077 384.832 108.644 589.723 117.6 616.191 768.077 384.832"/><polygon class="stripes" points="659.655 78.922 0 283.156 8.957 309.625 659.655 78.922"/><polygon class="stripes" points="677.864 130.205 18.168 334.318 27.125 360.789 677.864 130.205"/><polygon class="stripes" points="695.478 179.739 36.334 385.484 45.29 411.952 695.478 179.739"/></g></g></g></svg>
+            </div> <!--decoration-->
+            <div class="footer__text footer__text--football" data-max-height="240">{{{BF_footer-text-football--var}}}</div> <!--footer__text-->
+            <div class="image image--football"></div> <!--image-->
+          </div> <!--footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <div class="page page--custom">
+
+      <div class="bleed">
+
+        <div class="container fit fit--custom">
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
 
 
     <script>
@@ -1672,18 +1868,17 @@
         const separator = document.querySelector('.separator');
         const floatBox = document.querySelector('.floatBox');
         const floatBoxHeight = floatBox.offestHeight || 159;
-        console.log({floatBoxHeight, floatBox});
         // Reseting the separator and floatbox height before the calculatoion is done
         separator.style.height = 0; 
         floatBox.style.height = 0; 
         const innerHeight = document.querySelector('.list--swimSchool').offsetHeight;
-        console.log(floatBoxHeight);
 
         separator.style.height = `${innerHeight - floatBoxHeight}px`;  
         floatBox.style.height = `${floatBoxHeight}px`;
       }
-      
+
       floatHelper();
+
 
       // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
       TextFit.fit({
@@ -1692,7 +1887,19 @@
 
 
     </script>
+    <body>
+      <script type="text/javascript">
+        // Add many fallbacks for Print Ready
+        document.addEventListener('DOMContentLoaded', function(event) {
+          document.dispatchEvent(new Event('printready'));
+        });
 
+        setTimeout(function() {
+          document.dispatchEvent(new Event('printready'));
+        }, 500);
 
-  </body>
-</html>
+        document.dispatchEvent(new Event('printready'));
+      </script>
+
+    </body>
+    </html>
