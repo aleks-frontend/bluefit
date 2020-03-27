@@ -1267,7 +1267,7 @@
         width: 345pt;
         margin-bottom: 3.7pt;
         font-size: 23.34pt;
-        line-height: 1em;	
+        line-height: 1em;   
         color: var(--swim-blue);
       }
 
@@ -1885,21 +1885,28 @@
         selector: '.textFit'
       });
 
+      // Calling text size restriction functions once the fonts are loaded
+      // All external font-families need to be added to 'fonts' array
+      document.addEventListener('DOMContentLoaded', function(event) {
+        const fonts = ['Montserrat', 'TypoGraphica', 'Baloo 2'];
+        const fontObservers = [];
 
-    </script>
-    <body>
-      <script type="text/javascript">
-        // Add many fallbacks for Print Ready
-        document.addEventListener('DOMContentLoaded', function(event) {
-          document.dispatchEvent(new Event('printready'));
+        fonts.forEach(font => {
+          const obs = new FontFaceObserver(font);
+          fontObservers.push(obs.load())
         });
 
-        setTimeout(function() {
-          document.dispatchEvent(new Event('printready'));
-        }, 500);
+        Promise.all(fontObservers).then(() => {
+          floatHelper();
+          maxLineCheck();
+          maxHeightCheck();
 
-        document.dispatchEvent(new Event('printready'));
-      </script>
+          document.dispatchEvent(new Event('printready'));
+        });
+      });            
+
+
+    </script>
 
     </body>
     </html>
