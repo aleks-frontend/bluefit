@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html data-sign="OSM">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      /* Inputs Order
+      {{show-crop}}
+      */
+
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Montserrat/stylesheet.css');
+
+      :root {
+        --white: #fff; 
+        --blue-100-tint: {{{account.colors.blue-100-tint}}};
+        --blue-80-tint: {{{account.colors.blue-80-tint}}};
+      }
+
+      html {
+        font-family: 'Montserrat';
+        font-size: 11pt;
+        color: var(--blue-100-tint);
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .fit {
+        display: flex;
+        flex-direction: column;
+        padding: 59pt 40.8pt 20pt;
+      }
+
+      .content {
+        flex: 1;
+      }
+      
+      .content__inner {
+        max-height: 18.55rem;
+      }
+
+      .heading {
+        margin-bottom: 57pt;
+        font-size: 45pt;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        text-align: left;
+        font-weight: 800;
+        color: var(--blue-80-tint);
+      }
+
+      .heading .tinymce_style--dark {
+        color: var(--blue-100-tint);
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 23.9pt;
+        font-size: 17.9pt;
+        font-weight: normal;
+        line-height: 1.25em;
+      }
+      
+      .info:last-child { margin-bottom: 0; }
+
+      .info--education {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .info__heading {
+        font-weight: bold;
+      }
+
+      .info__item {
+        display: flex;
+        justify-content: space-between;
+            align-items: flex-start;
+      }
+
+      .info__label {
+        width: 265pt;
+      }
+
+      .info__copy {
+        width: 241pt;
+      }
+
+      .info__value {
+        text-align: left;
+        width: 241pt;
+      }
+
+      .info__copy h1 {
+        margin-bottom: 6pt;
+        line-height: 1.3em;
+      }
+
+      .info__copy p {
+        font-size: 12pt;
+        line-height: 1.2em;
+      }
+
+      .info__copy p:last-child { margin-bottom: 3pt }
+
+      .u-bold { font-weight: bold; }
+      .u-fs-14 { font-size: 14pt; }
+      .u-td-underline { text-decoration: underline; }
+
+
+      .info__state { display: none; }
+
+      .state--qld .info__state--qld,
+      .state--nsw .info__state--nsw,
+      .state--act .info__state--act,
+      .state--vic .info__state--vic,
+      .state--sa .info__state--sa,
+      .state--wa .info__state--wa,
+      .state--nt .info__state--nt,
+      .state--tas .info__state--tas {
+        display: block;
+      }
+
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" data-reduce-export-font-size-by-percent="0" data-reduce-firefox-font-size-by-percent="0" data-prevent-export-overflow="false"
+        class="state--{{{BF_state--si}}}{{^BF_state--si}}qld{{/BF_state--si}}">
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+
+          <div class="content">
+            <div class="content__inner" data-max-height="css">
+              {{#BF_heading--si}}
+              <div class="heading" data-max-line="2">{{{BF_heading--si}}}</div><!--heading-->
+              {{/BF_heading--si}}
+              <div class="info">
+                {{#spreadsheet.BF_service-information--si}}
+                <div class="info__item">
+                  <div class="info__label u-bold">{{heading}}</div><!--info__label-->
+                  <div class="info__value">{{content}}</div><!--info__value-->
+                </div><!--info__item-->
+                {{/spreadsheet.BF_service-information--si}}
+              </div><!--info-->
+              {{#BF_educational-leader--si}}
+              <div class="info info--education" data-max-height="105">
+                <div class="info__item info__item--education">
+                  <div class="info__label u-bold">Educational Leader:</div><!--info__label-->
+                </div><!--info__item-->
+                <div class="info__item info__item--education">
+                  <div class="info__copy">{{{BF_educational-leader--si}}}</div><!--info__copy-->
+                </div><!--info__item-->
+              </div><!--info-->
+              {{/BF_educational-leader--si}}
+              <div class="info">
+                <div class="info__heading">Hours of Operation:</div><!--info__heading-->
+                {{#spreadsheet.BF_hours-of-operation--si}}
+                <div class="info__item">
+                  <div class="info__label">{{heading}}</div><!--info__label-->
+                  <div class="info__value">{{content}}</div><!--info__value-->
+                </div><!--info__item-->
+                {{/spreadsheet.BF_hours-of-operation--si}}
+              </div><!--info-->
+              <div class="info">
+                <div class="info__heading">Fees:</div><!--info__heading-->
+                {{#spreadsheet.BF_fees--si}}
+                <div class="info__item">
+                  <div class="info__label">{{heading}}</div><!--info__label-->
+                  <div class="info__value">{{content}}</div><!--info__value-->
+                </div><!--info__item-->
+                {{/spreadsheet.BF_fees--si}}
+              </div><!--info-->
+              <div class="info info__state info__state--vic">
+                <div class="info__heading">VIC</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">1300 307 415</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">licensed.childrens.services@edumail.vic.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.education.vic.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--sa">
+                <div class="info__heading">SA</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">1800 882 413</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ESB.EarlyChildhoodServices@sa.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.esb.sa.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--wa">
+                <div class="info__heading">WA</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">(08) 6551 8333</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ecru@communities.wa.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.dlgc.wa.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--nsw">
+                <div class="info__heading">NSW</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">1800 619 113</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ececd@det.nsw.edu.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.education.nsw.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--qld">
+                <div class="info__heading">QLD</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">13 QGOV (13 7468)</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ecec@qed.qld.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.qed.qld.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--tas">
+                <div class="info__heading">TAS</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">1800 816 057</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ecu.comment@education.tas.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.educationandcare.tas.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--act">
+                <div class="info__heading">ACT</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">(02) 6207 1114</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">ceca@act.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.education.act.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+              <div class="info info__state info__state--nt">
+                <div class="info__heading">NT</div><!--info__heading-->
+                <div class="info__item">
+                  <div class="info__label">Phone:</div><!--info__label-->
+                  <div class="info__value">(08) 8999 3561</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Email:</div><!--info__label-->
+                  <div class="info__value">qualityecnt.det@nt.gov.a</div><!--info__value-->
+                </div><!--info__item-->
+                <div class="info__item">
+                  <div class="info__label">Website</div><!--info__label-->
+                  <div class="info__value u-fs-14 u-td-underline">www.education.nt.gov.au</div><!--info__value-->
+                </div><!--info__item-->
+              </div><!--info-->
+            </div><!--content__inner-->
+          </div><!--content-->
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+      
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+      
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+      
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+      
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+    </script>
+
+
+  </body>
+</html>
