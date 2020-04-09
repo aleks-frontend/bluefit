@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html data-sign="OSZ" async>
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Montserrat/stylesheet.css');
+
+      /* Input Order
+
+      {{show-crop}}
+      {{{BF_location--hpf}}}
+      {{{BF_background-image--hpf}}}
+      {{{BF_date--hpf}}}
+      {{{BF_time-and-price--hpf}}}
+      {{{BF_cta--hpf}}}
+      {{{BF_top-left-image--hpf}}}
+      {{{BF_top-right-image--hpf}}}
+      {{{BF_bottom-left-image--hpf}}}
+      {{{BF_bottom-right-image--hpf}}}
+
+      */
+
+      :root {
+        --white: #fff; 
+        --light-blue: #b4e1f4;
+        --light-peach: #fee8b9;
+        --tint-80: {{{account.colors.blue-80-tint}}};
+        --tint-100: {{{account.colors.blue-100-tint}}};
+        --yellow: #fbe70a;
+        --southern-secondary-1: {{{account.colors.southern-education-secondary-1}}};
+      }
+
+      html {
+        font-family: 'Montserrat';
+        word-break: break-word;
+      }   
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }
+
+      .fit {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .body {
+        flex: 1;
+        position: relative;
+      }
+
+      .body--frontPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 10pt 40pt 10pt 57pt;
+      }
+      
+      .body--backPage {
+        margin-top: 15pt;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        height: 300pt;
+        text-align: center;
+      }
+
+      .content__inner {
+        position: relative;
+      }
+
+      .date__container,
+      .time__container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .date__container {
+        height: 56pt;
+        margin-bottom: 7pt;
+      }
+
+      .date__container:after,
+      .time__container:after {
+        content: "";
+        position: absolute;
+        bottom: -1.2pt;
+        height: 3.7pt;
+        width: 100.4%;
+        background-image: url(https://files.outfit.io/media_library_items/171235/Group%25201%2520%25284%2529.svg);
+        background-size: contain;
+      }
+
+      .time__container:last-child:after {
+        background-image: none;
+      }
+
+      .date {
+        font-size: 42.7pt;
+        font-weight: 900;
+        word-spacing: -2.1pt;
+        line-height: 1.2em;
+        color: var(--white);
+        -webkit-text-stroke-color: var(--tint-100);
+        -webkit-text-stroke-width: 2.7pt;
+      }
+
+      .date .tinymce_style--dark {
+        color: var(--yellow);
+      }
+
+      .date sup {
+        top: -0.6em;
+        font-size: 0.6em;
+      }
+
+      .time__container {
+        height: 40pt;
+        margin-bottom: 7pt;
+      }
+
+      .time {
+        font-size: 27.2pt;
+        font-weight: 800;
+        line-height: 1.2em;
+        color: var(--white);
+      }
+
+      .time .tinymce_style--dark {
+        font-weight: 600;
+        color: var(--tint-100);
+      }
+
+      .cta h3 {
+        margin-bottom: 0.1em;
+        font-size: 22.4pt;
+        font-weight: bold;
+        line-height: 1.2em;
+        color: var(--yellow);
+      }
+
+      .cta p {
+        margin-bottom: 0.4em;
+        font-size: 9.3pt;
+        line-height: 1.2em;
+        color: var(--white);
+      }
+
+      .cta h3:last-child,
+      .cta p:last-child {
+        margin-bottom: 0pt;
+      }
+
+      .hero {
+        /* margin-bottom: 15pt; */
+        display: flex;
+        width: 100%;
+        height: 363pt;
+        flex-wrap: wrap;
+      }
+      
+      .hero--presetedImages.hero {
+        display: none;
+      } 
+
+      .hero__image {
+        position: relative;
+        flex-grow: 1;
+        flex-basis: 50%;
+      }
+
+      .hero__image--secondary {
+        display: none;
+      }
+
+      .hero--presetedImages .hero__image--secondary{
+        /* display: block; */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .hero__image--secondary:first-child {
+        background-image: url(https://files.outfit.io/media_library_items/170264/BFK-SHP-image2%25404x-100.jpg);
+      }
+
+      .hero__image--secondary:nth-child(2) {
+        background-image: url(https://files.outfit.io/media_library_items/170263/BFK-SHP-image2%25404x-100.jpg);
+      }
+
+      .hero__image--secondary:nth-child(3) {
+        background-image: url(https://files.outfit.io/media_library_items/170262/BFK-SHP-image2%25404x-100.jpg);
+      }
+
+      .hero__image--secondary:last-child {
+        background-image: url(https://files.outfit.io/media_library_items/170265/BFK-SHP-image2%25404x-100.jpg);
+      }
+
+      .schedule p,
+      .table__heading {
+        font-size: 15.87pt;
+        line-height: 1.2em;
+      }
+
+      .schedule h4,
+      .table__heading strong {
+        font-size: 16.9pt;
+        font-weight: bold;
+      }
+
+      .schedule {        
+        margin-bottom: 6pt;
+        padding: 0pt 46pt;
+        font-size: 15.87pt;
+        line-height: 1.2em;
+        color: var(--tint-80);
+      }
+
+      .schedule p,
+      .schedule h4 {
+        display: inline-block;
+      }
+
+      .table__container {
+        padding: 0pt 46pt;
+      }
+
+      .table__container + .table__container {
+        margin-top: 6pt;
+      }
+
+      .table__container + .activities__container {
+        margin-top: 10pt;
+      }
+
+      .table__heading {
+        padding: 4.5pt 20pt 1.5pt;
+        text-align: center;
+        background-color: var(--tint-80);
+        color: var(--white);
+      }
+
+      .table__heading--firstWeek {
+        font-size: 16.27pt;
+      }
+
+      .table {
+        display: flex;
+        border-top: 0.8pt solid var(--tint-80);
+      }
+
+      .tableItem {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        border-left: 0.8pt solid var(--tint-80);
+        border-bottom: 0.8pt solid var(--tint-80);
+      }
+
+      .tableItem:last-child {
+        border-right: 0.8pt solid var(--tint-80);;
+      }
+
+      .tableItem__heading {
+        display: flex;
+        flex-direction: column;
+        height: 38pt;
+        font-size: 7pt;
+        line-height: 1.2em;
+        color: var(--yellow);
+        border-bottom: 0.8pt solid var(--tint-80);
+      }
+
+      .tableItem--holiday .tableItem__heading {
+        color: var(--white);
+      }
+
+      .tableItem__day {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5pt 5pt 2pt;
+        font-size: 12.7pt;
+        font-weight: 600;
+        text-transform: uppercase;
+        background-color: var(--tint-100);
+      }
+
+      .tableItem:first-child .tableItem__day:before {
+        content: "Monday";
+      }
+
+      .tableItem:nth-child(2) .tableItem__day:before {
+        content: "Tuesday";
+      }
+
+      .tableItem:nth-child(3) .tableItem__day:before {
+        content: "Wednesday";
+      }
+
+      .tableItem:nth-child(4) .tableItem__day:before {
+        content: "Thursday";
+      }
+
+      .tableItem:nth-child(5) .tableItem__day:before {
+        content: "Friday";
+      }
+
+      .tableItem__occasion {
+        display: flex;
+        align-items: center;
+        padding: 5pt 13pt 2pt;
+        font-size: 12.7pt;
+        font-weight: 600;
+        color: var(--tint-100);
+        border-top: 0.8pt solid var(--tint-80);
+      }
+
+      .table--firstWeek .tableItem__occasion {
+        height: 19pt;
+      }
+
+      .table--secondWeek .tableItem__occasion {
+        height: 17pt;
+        justify-content: center;
+      }
+
+      .tableItem--incursion .tableItem__occasion {
+        background-color: var(--light-blue);
+      }
+
+      .tableItem--excursion .tableItem__occasion {
+        background-color: var(--light-peach);
+      }
+
+
+      .tableItem__text {
+        flex: 1;
+        display: flex;
+        font-size: 11.2pt;
+        line-height: 1.3em;
+        color: var(--tint-100);
+      }
+
+      .table--firstWeek .tableItem__text {
+        padding: 4pt 8.2pt 4pt 8.2pt;
+      }
+
+      .table--secondWeek .tableItem__text {
+        padding: 4pt 8.2pt 2pt 8.2pt;
+      }
+
+      .tableItem--holiday .tableItem__text {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--light-blue);
+      }
+
+      .tableItem__text ul {
+        list-style-type: none;
+        padding-left: 5pt;
+      }
+
+      .table li {
+        position: relative;
+      }
+
+      .table li:before {
+        content: '';
+        position: absolute;
+        left: -8pt;
+        top: 5.8pt;
+        height: 2.2pt;
+        width: 2.2pt;
+        border-radius: 50%;
+        background-color: black;
+      }
+
+      .activities__body {
+        display: flex;
+        justify-content: space-between;
+        height: 96.2pt;
+        padding: 7pt 30pt 7pt 45pt;
+        background-color: var(--tint-100);
+      }
+
+      .activities__titleContainer {
+        display: flex;
+        width: 90pt;
+        margin-right: 6.2pt;
+        align-items: center;
+      }
+
+      .activities__title {
+        font-size: 17pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.2em;
+        color: var(--tint-80);
+      }
+
+      .activities {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 67.5pt;
+        margin-right: 5pt;
+        padding: 4pt 0pt;
+      } 
+
+      .activities:last-child {
+        margin-right: 0pt;
+      }
+
+
+      .activities__icon {
+        flex-shrink: 0;
+        margin-bottom: 2pt;
+        width: 52pt;
+        height: 52pt;
+        object-fit: contain;
+        object-position: center center;
+      }
+
+      .activities__copy {
+        font-size: 11.7pt;
+        line-height: 1em;
+        text-align: center;
+        color: var(--white);
+      }
+
+      .activities__copy h4 {
+        font-size: 11.7pt;
+        line-height: 1em;
+      }
+
+      .activities__copy p {
+        font-size: 7.2pt;
+        line-height: 1em;
+      }
+
+      .activities__text {
+        max-height: 2em;
+        padding: 4.5pt 46pt 3.5pt;
+        text-align: center;
+        font-size: 9.8pt;
+        line-height: 1.2em;;
+        color: var(--white);
+        background-color: var(--tint-80);
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .footer--frontPage {
+        height: 99pt;
+        padding: 22pt 44pt 28pt;
+        background-color: var(--tint-80);
+      }
+
+      .footer--backPage {
+        height: 64pt;
+        margin-top: 15pt;
+        padding: 0pt 44pt 31pt 44.7pt;
+      }
+
+      .is-firefox .footer--backPage {
+        margin-top: 10pt;
+      }
+
+      .logo {
+        display: none;
+        object-fit: contain;
+      }
+
+      .logo--primary,
+      .location--emmaus-catholic-primary-school .logo--1,
+      .location--st-catherines-primary-school .logo--2,
+      .location--arkana-college-primary-school .logo--3,
+      .location--rivervale-primary-school .logo--4,
+      .location--forrestfield-primary-school .logo--5,
+      .location--woodlupine-primary-school .logo--6,
+      .location--hurstville-aquatic-leisure-centre .logo--7,
+      .location--belmont-oasis-leisure-centre .logo--8 {
+        display: block;
+      }
+
+
+      .logo--primary {
+        object-position: left center;
+        width: 150pt;
+        height: 44.5pt;
+      }
+
+      .logo--secondary {
+        object-position: left center;
+        width: 166pt;
+        height: 34.5pt;
+      }
+
+      .footer__info {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 325pt;
+      }
+
+      .footer__info--frontPage,
+      .location--emmaus-catholic-primary-school .footer__info--1,
+      .location--st-catherines-primary-school .footer__info--2,
+      .location--arkana-college-primary-school .footer__info--3,
+      .location--rivervale-primary-school .footer__info--4,
+      .location--forrestfield-primary-school .footer__info--5,
+      .location--woodlupine-primary-school .footer__info--6,
+      .location--hurstville-aquatic-leisure-centre .footer__info--7,
+      .location--belmont-oasis-leisure-centre .footer__info--8 {
+        display: flex;
+      }
+
+      .phone,
+      .website,
+      .name,
+      .address {
+        text-align: right;
+        line-height: 1.2em;
+      }
+
+      .phone,
+      .website {
+        text-transform: uppercase;
+        font-size: 16pt;
+        color: var(--white);
+      }
+
+      .phone,
+      .website,
+      .address {
+        font-size: 16pt;
+      }
+
+      .footer__info--1 .address,
+      .footer__info--3 .address {
+        font-size: 14.5pt;
+      }
+
+      .footer__info--7 .address {
+        font-size: 12.9pt;
+      }
+
+      .name,
+      .address {
+        color: var(--tint-100);
+      }
+
+      .name {
+        font-size: 15.74pt;
+      }
+
+      .website,
+      .name {
+        font-weight: bold;
+      }
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" data-reduce-export-font-size-by-percent="0" data-reduce-firefox-font-size-by-percent="0" data-prevent-export-overflow="false"
+        class="location--{{{BF_location--hpf}}}{{^BF_location--hpf}}emmaus-catholic-primary-school{{/BF_location--hpf}}">
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit fit--frontPage">
+          <div class="backgroundImage"><div class="reposition-fix">{{{BF_background-image--hpf}}}</div></div> <!--backgroundImage-->
+          <div class="body body--frontPage">
+            <div class="content">
+              <div class="content__inner">
+                {{#BF_date--hpf}}
+                <div class="date__container">
+                  <div class="date textFit" data-max-line="1">{{{BF_date--hpf}}}</div> <!--date-->
+                </div> <!--date__container-->
+                {{/BF_date--hpf}}
+                {{#BF_time-and-price--hpf}}
+                <div class="time__container">
+                  <div class="time" data-max-line="1">{{{BF_time-and-price--hpf}}}</div> <!--time-->
+                </div> <!--time__container-->
+                {{/BF_time-and-price--hpf}}
+                {{#BF_cta--hpf}}
+                <div class="cta u-heading-patch" data-max-height="css">{{{BF_cta--hpf}}}</div> <!--cta-->
+                {{/BF_cta--hpf}}
+              </div> <!--content__inner-->
+            </div> <!--content-->
+          </div> <!--body-->
+          <div class="footer footer--frontPage">
+            <img class="logo logo--primary" src="https://files.outfit.io/media_library_items/170270/BlueFit%2520Kids-logo.svg"> <!--logo-->
+            <div class="footer__info footer__info--frontPage">
+              <div class="phone">1300 112 583</div> <!--phone-->
+              <div class="website">www.bluefitkids.com.au</div> <!--website-->
+            </div> <!--footer__info-->
+          </div> <!--footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit fit--backPage">
+          <div class="hero {{^BF_top-left-image--hpf}}hero{{/BF_top-left-image--hpf}}{{^BF_top-right-image--hpf}}--{{/BF_top-right-image--hpf}}{{^BF_bottom-left-image--hpf}}preseted{{/BF_bottom-left-image--hpf}}{{^BF_bottom-right-image--hpf}}Images{{/BF_bottom-right-image--hpf}}">
+            {{#BF_top-left-image--hpf}}
+            <div class="hero__image hero__image--primary"><div class="reposition-fix">{{{BF_top-left-image--hpf}}}</div></div> <!--hero-->
+            {{/BF_top-left-image--hpf}}
+            {{#BF_top-right-image--hpf}}
+            <div class="hero__image hero__image--primary"><div class="reposition-fix">{{{BF_top-right-image--hpf}}}</div></div> <!--hero-->
+            {{/BF_top-right-image--hpf}}
+            {{#BF_bottom-left-image--hpf}}
+            <div class="hero__image hero__image--primary"><div class="reposition-fix">{{{BF_bottom-left-image--hpf}}}</div></div> <!--hero-->
+            {{/BF_bottom-left-image--hpf}}
+            {{#BF_bottom-right-image--hpf}}
+            <div class="hero__image hero__image--primary"><div class="reposition-fix">{{{BF_bottom-right-image--hpf}}}</div></div> <!--hero-->
+            {{/BF_bottom-right-image--hpf}}
+            <div class="hero__image hero__image--secondary"></div> <!--hero-->
+            <div class="hero__image hero__image--secondary"></div> <!--hero-->
+            <div class="hero__image hero__image--secondary"></div> <!--hero-->
+            <div class="hero__image hero__image--secondary"></div> <!--hero-->
+          </div> <!--hero-->
+          <div class="body body--backPage">
+            <div class="body__inner" data-max-height="dynamic">
+              {{#BF_schedule--hpf}}
+              <div class="schedule" data-max-line="1">{{{BF_schedule--hpf}}}</div> <!--schedule-->
+              {{/BF_schedule--hpf}}
+
+              {{#collection.BF_first-week-table--hpf}}
+              <div class="table__container">
+                {{#table-heading}}
+                <div class="table__heading" data-max-line="1">{{{table-heading}}}</div> <!--table__heading-->
+                {{/table-heading}}
+                <div class="table table--firstWeek">
+                  {{#collection.weekdays}}
+                  {{#block.incursion}}
+                  <div class="tableItem tableItem--incursion">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                      <div class="tableItem__occasion tableItem__occasion--incursion">Incursion</div> <!--table__occasion-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text">{{{activities}}}</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.incursion}}
+                  {{#block.excursion}}
+                  <div class="tableItem tableItem--excursion">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                      <div class="tableItem__occasion tableItem__occasion--excursion">Excursion</div> <!--table__occasion-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text">{{{activities}}}</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.excursion}}
+                  {{#block.public-holiday}}
+                  <div class="tableItem tableItem--holiday">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text tableItem__text--holiday">Public<br>Holiday</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.public-holiday}}
+                  {{/collection.weekdays}}
+                </div> <!--table-->
+              </div> <!--table__container-->
+              {{/collection.BF_first-week-table--hpf}}
+
+              {{#collection.BF_second-week-table--hpf}}
+              <div class="table__container">
+                {{#table-heading}}
+                <div class="table__heading" data-max-line="1">{{{table-heading}}}</div> <!--table__heading-->
+                {{/table-heading}}
+                <div class="table table--secondWeek">
+                  {{#collection.weekdays}}
+                  {{#block.incursion}}
+                  <div class="tableItem tableItem--incursion">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                      <div class="tableItem__occasion tableItem__occasion--incursion">Incursion</div> <!--table__occasion-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text">{{{activities}}}</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.incursion}}
+                  {{#block.excursion}}
+                  <div class="tableItem tableItem--excursion">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                      <div class="tableItem__occasion tableItem__occasion--excursion">Excursion</div> <!--table__occasion-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text">{{{activities}}}</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.excursion}}
+                  {{#block.public-holiday}}
+                  <div class="tableItem tableItem--holiday">
+                    <div class="tableItem__heading">
+                      <div class="tableItem__day"></div> <!--table__day-->
+                    </div> <!--table__heading-->
+                    <div class="tableItem__text tableItem__text--holiday">Public<br>Holiday</div> <!--tableItem__text-->
+                  </div> <!--tableItem-->
+                  {{/block.public-holiday}}
+                  {{/collection.weekdays}}
+                </div> <!--table-->
+              </div> <!--table__container-->
+              {{/collection.BF_second-week-table--hpf}}
+              {{#collection.activities--hpf}}
+              <div class="activities__container">
+                <div class="activities__body">
+                  {{#heading--hpf}}
+                  <div class="activities__titleContainer">
+                    <div class="activities__title" data-max-line="2">{{{heading--hpf}}}</div> <!--activities__title-->
+                  </div> <!--activities__titleContainer-->
+                  {{/heading--hpf}}
+                  {{#collection.activities}}
+                  {{#block.icon-block}}
+                  <div class="activities">
+                    {{#icon--hpf}}
+                    <img class="activities__icon" src="{{{icon--hpf}}}"> <!--activities__icon-->
+                    {{/icon--hpf}}
+                    {{#copy--hpf}}
+                    <div class="activities__copy" data-max-line="2">{{{copy--hpf}}}</div> <!--activities-->
+                    {{/copy--hpf}}
+                  </div> <!--activities-->
+                  {{/block.icon-block}}
+                  {{/collection.activities}}
+                </div> <!--activities__body-->
+                {{#subheading--hpf}}
+                <div class="activities__text" data-max-line="css">{{{subheading--hpf}}}</div> <!--activities__text-->
+                {{/subheading--hpf}}
+              </div> <!--activities__container-->
+              {{/collection.activities--hpf}}
+            </div> <!--body__inner-->
+          </div> <!--body-->
+          <div class="footer footer--backPage">
+            <div class="logo__container">
+              <img class="logo logo--secondary logo--7" src="https://files.outfit.io/media_library_items/174537/hurstville-aquatic-leisure-centre.svg"> <!--logo-->
+              <img class="logo logo--secondary logo--8" src="https://files.outfit.io/media_library_items/171768/Belmont%2520Oasis_logo_hz_colour.png"> <!--logo-->
+            </div> <!--logo__container-->
+            <div class="footer__info footer__info--1">
+              <div class="name">Emmaus Catholic Primary School</div> <!--phone-->
+              <div class="address">370 Sydenham Road, Sydenham VIC, 3037</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--2">
+              <div class="name">St Catherines Primary School</div> <!--phone-->
+              <div class="address">2 Lascelles Drive, Lalor West VIC, 3075</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--3">
+              <div class="name">Arkana College Primary School</div> <!--phone-->
+              <div class="address">342-346 Stoney Creek Road,<br>Kingsgrove NSW 2208</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--4">
+              <div class="name">Rivervale Primary School</div> <!--phone-->
+              <div class="address">99 Acton Avenue, Rivervale WA 6103</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--5">
+              <div class="name">Forrestfield Primary School</div> <!--phone-->
+              <div class="address">45 Sussex Road, Forrestfield WA 6058</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--6">
+              <div class="name">Woodlupine Primary School</div> <!--phone-->
+              <div class="address">29 Solandra Way, Forrestfield WA 6058</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--7">
+              <div class="name">Hurstville Aquatic Leisure Centre</div> <!--phone-->
+              <div class="address">King Georges Rd & Forest Rd, Hurstville NSW 2220</div> <!--website-->
+            </div> <!--footer__info-->
+            <div class="footer__info footer__info--8">
+              <div class="name">Belmont Oasis Leisure Centre</div> <!--phone-->
+              <div class="address">Progress Way, Belmont WA 6104</div> <!--website-->
+            </div> <!--footer__info-->
+          </div> <!--footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+    </script>
+
+    <script type="text/javascript">
+      // Add many fallbacks for Print Ready
+      document.addEventListener('DOMContentLoaded', function(event) {
+        document.dispatchEvent(new Event('printready'));
+      });
+
+      setTimeout(function() {
+        document.dispatchEvent(new Event('printready'));
+      }, 2500);
+
+      document.dispatchEvent(new Event('printready'));
+    </script>    
+
+  </body>
+</html>
