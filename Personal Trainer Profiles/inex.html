@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html data-sign="OSR">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Montserrat/stylesheet.css');
+
+      /* Inputs Order
+
+      {{show-crop}}
+		
+      */
+
+      :root {
+        --white: #fff; 
+        --primary: {{{account.colors.pivot-primary}}};
+        --tint-100: {{{account.colors.blue-100-tint}}};
+        --tint-90: {{{account.colors.blue-90-tint}}};
+        --tint-80: {{{account.colors.blue-80-tint}}};      
+        --tint-60: {{{account.colors.blue-60-tint}}};
+        --tint-40: {{{account.colors.blue-40-tint}}};
+
+        /* Angelo Anestis Aquatic Centre */
+        --angelo-anestis-primary: {{{account.colors.angelo-primary}}};
+        --angelo-anestis-secondary-1: {{{account.colors.angelo-secondary-1}}};
+        --angelo-anestis-secondary-2: {{{account.colors.angelo-secondary-2}}};
+
+        /* Aquadome */
+        --aquadome-primary-1: {{{account.colors.aquadome-primary-1}}}; 
+        --aquadome-primary-2: {{{account.colors.aquadome-primary-2}}};
+        --aquadome-secondary-1: {{{account.colors.aquadome-secondary-1}}};
+
+        /* Bayfit Leisure Centre */
+        --bayfit-primary: {{{account.colors.bayfit-primary}}}; 
+        --bayfit-secondary-1: {{{account.colors.bayfit-secondary-1}}};
+        --bayfit-secondary-2: {{{account.colors.bayfit-secondary-2}}};
+
+        /* Belmont Oasis Leisure Centre */ 
+        --belmont-primary: {{{account.colors.belmont-primary}}};
+        --belmont-secondary-1: {{{account.colors.belmont-secondary}}};
+
+        /* BlueFit */
+        --bluefit-primary: {{{account.colors.primary}}};  
+        --bluefit-secondary-1: {{{account.colors.blue-80-tint}}};
+        --bluefit-secondary-2: {{{account.colors.blue-60-tint}}};
+        --bluefit-secondary-3: {{{account.colors.blue-100-tint}}};
+
+        /* Coffs Harbour Pools */
+        --coffs-harbour-pools-primary: {{{account.colors.coffs-harbour-pools-primary}}};
+        --coffs-harbour-pools-secondary-1: {{{account.colors.coffs-harbour-pools-secondary-1}}};
+        --coffs-harbour-pools-secondary-2: {{{account.colors.coffs-harbour-pools-secondary-2}}};
+
+        /* Gladstone Aquatic */ 
+        --gladstone-aquatic-primary: {{{account.colors.gladstone-aquatic-primary}}};
+        --gladstone-aquatic-secondary-1: {{{account.colors.gladstone-aquatic-secondary-1}}};
+        --gladstone-aquatic-secondary-2: {{{account.colors.gladstone-aquatic-secondary-2}}};
+
+        /* Glen Waverley Golf Course */ 
+        --glen-waverley-golf-course-primary: {{{account.colors.glen-waverley-golf-course-primary}}};
+        --glen-waverley-golf-course-secondary-1: {{{account.colors.glen-waverley-golf-course-secondary-1}}};
+        --glen-waverley-golf-course-secondary-2: {{{account.colors.glen-waverley-golf-course-secondary-2}}};
+
+        /* Greenwich Baths Sydney */ 
+        --greenwich-baths-sydney-primary: {{{account.colors.greenwich-baths-sydney-primary}}};
+        --greenwich-baths-sydney-secondary-1: {{{account.colors.greenwich-baths-sydney-secondary-1}}};
+        --greenwich-baths-sydney-secondary-2: {{{account.colors.greenwich-baths-sydney-secondary-2}}};
+
+        /* Hurstville Aquatic Leisure Centre */ 
+        --hurstville-aquatic-leisure-centre-primary: {{{account.colors.hurstville-aquatic-leisure-centre-primary}}};
+        --hurstville-aquatic-leisure-centre-secondary-1: {{{account.colors.hurstville-aquatic-leisure-centre-secondary-1}}};
+        --hurstville-aquatic-leisure-centre-secondary-2: {{{account.colors.hurstville-aquatic-leisure-centre-secondary-2}}};
+
+        /* Hurstville Golf Course */ 
+        --hurstville-golf-course-primary: {{{account.colors.hurstville-golf-course-primary}}};
+        --hurstville-golf-course-secondary-1: {{{account.colors.hurstville-golf-course-secondary-1}}};
+        --hurstville-golf-course-secondary-2: {{{account.colors.hurstville-golf-course-secondary-2}}};
+
+        /* Lane Cove Aquatic Centre */  
+        --lane-cove-aquatic-centre-primary: {{{account.colors.lane-cove-aquatic-centre-primary}}};
+        --lane-cove-aquatic-centre-secondary-1: {{{account.colors.lane-cove-aquatic-centre-secondary-1}}};
+        --lane-cove-aquatic-centre-secondary-2: {{{account.colors.lane-cove-aquatic-centre-secondary-2}}};
+        --lane-cove-aquatic-centre-secondary-3: {{{account.colors.lane-cove-aquatic-centre-secondary-3}}};
+
+        /* Leisure Employment Australia */ 
+        --leisure-employment-australia-primary: {{{account.colors.leisure-employment-australia-primary}}};
+        --leisure-employment-australia-secondary-1: {{{account.colors.leisure-employment-australia-secondary-1}}};
+        --leisure-employment-australia-secondary-2: {{{account.colors.leisure-employment-australia-secondary-2}}};
+
+        /* Moss Vale War Memorial Aquatic Centre */ 
+        --moss-vale-aquatic-centre-primary: {{{account.colors.moss-vale-aquatic-centre-primary}}};
+        --moss-vale-aquatic-centre-secondary-1: {{{account.colors.moss-vale-aquatic-centre-secondary-1}}};
+        --moss-vale-aquatic-centre-secondary-2: {{{account.colors.moss-vale-aquatic-centre-secondary-2}}};
+
+        /* Newcastle Pools */ 
+        --newcastle-pools-primary: {{{account.colors.newcastle-pools-primary}}};
+        --newcastle-pools-secondary-1: {{{account.colors.newcastle-pools-secondary-1}}};
+        --newcastle-pools-secondary-2: {{{account.colors.newcastle-pools-secondary-2}}};
+
+        /* Oakleigh Golf Course */ 
+        --oakleigh-golf-course-primary: {{{account.colors.oakleigh-golf-course-primary}}};
+        --oakleigh-golf-course-secondary-1: {{{account.colors.oakleigh-golf-course-secondary-1}}};
+        --oakleigh-golf-course-secondary-2: {{{account.colors.oakleigh-golf-course-secondary-2}}};
+
+        /* Port Macquarie Hastings Pools */ 
+        --port-macquarie-hastings-pools-primary: {{{account.colors.port-macquarie-hastings-pools-primary}}};
+        --port-macquarie-hastings-pools-secondary-1: {{{account.colors.port-macquarie-hastings-pools-secondary-1}}};
+        --port-macquarie-hastings-pools-secondary-2: {{{account.colors.port-macquarie-hastings-pools-secondary-2}}};
+        --port-macquarie-hastings-pools-secondary-3: {{{account.colors.port-macquarie-hastings-pools-secondary-3}}};
+
+        /* Rockhampton Aquatic */ 
+        --rockhampton-aquatic-primary: {{{account.colors.rockhampton-aquatic-primary}}};
+        --rockhampton-aquatic-secondary-1: {{{account.colors.rockhampton-aquatic-secondary-1}}};
+        --rockhampton-aquatic-secondary-2: {{{account.colors.rockhampton-aquatic-secondary-2}}};
+
+        /* Stonnington Tennis Centres */ 
+        --stonnington-tennis-centres-primary: {{{account.colors.stonnington-tennis-centres-primary}}};
+        --stonnington-tennis-centres-secondary-1: {{{account.colors.stonnington-tennis-centres-secondary-1}}};
+        --stonnington-tennis-centres-secondary-2: {{{account.colors.stonnington-tennis-centres-secondary-2}}};
+
+        /* Wollondilly Leisure Centre */ 
+        --wollondilly-leisure-centre-primary: {{{account.colors.stonnington-tennis-centres-primary}}};
+        --wollondilly-leisure-centre-secondary-1: {{{account.colors.wollondilly-leisure-centre-secondary-1}}};
+        --wollondilly-leisure-centre-secondary-2: {{{account.colors.wollondilly-leisure-centre-secondary-2}}};
+
+        /* Mosman Swim Centre */  
+        --mosman-swim-centre-primary: {{{account.colors.mosman-swim-centre-primary}}};
+        --mosman-swim-centre-secondary-1: {{{account.colors.mosman-swim-centre-secondary-1}}};
+        --mosman-swim-centre-secondary-2: {{{account.colors.mosman-swim-centre-secondary-2}}};
+        --mosman-swim-centre-secondary-3: {{{account.colors.mosman-swim-centre-secondary-3}}};
+        --mosman-swim-centre-secondary-4: {{{account.colors.mosman-swim-centre-secondary-4}}};
+
+        /* Club Jubilee One */ 
+        --club-jubilee-one-primary: {{{account.colors.club-jubilee-one-primary}}};
+        --club-jubilee-one-secondary-1: {{{account.colors.club-jubilee-one-secondary-1}}};
+        --club-jubilee-one-secondary-2: {{{account.colors.club-jubilee-one-secondary-2}}};
+        --club-jubilee-one-secondary-3: {{{account.colors.club-jubilee-one-secondary-3}}};
+        --club-jubilee-one-secondary-4: {{{account.colors.club-jubilee-one-secondary-4}}};
+        --club-jubilee-one-secondary-5: {{{account.colors.club-jubilee-one-secondary-5}}};
+        --club-jubilee-one-secondary-6: {{{account.colors.club-jubilee-one-secondary-6}}};
+
+        /* Southern Education */ 
+        --southern-education-primary: {{{account.colors.southern-education-primary}}};
+        --southern-education-secondary-1: {{{account.colors.southern-education-secondary-1}}};
+      }
+      
+       /* Belmont Oasis Leisure Centre */
+      .toggleBrandChoice--belmont-oasis-leisure-centre { 
+        --dynamic-background-color: var(--belmont-primary);
+        --dynamic-overlay-color: var(--belmont-primary);
+      }
+      .toggleBrandChoice--belmont-oasis-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--belmont-primary); }
+      .toggleBrandChoice--belmont-oasis-leisure-centre .tinymce_style--light { --dynamic-light-text: var(--belmont-secondary-1); }
+      
+      .toggleBrandChoice--belmont-oasis-leisure-centre.toggleBrandType--secondary { --dynamic-background-color: var(--belmont-secondary-1); }
+      /* Belmont Oasis Leisure Centre */
+
+      /*Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)*/
+      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre { 
+        --dynamic-background-color: var(--angelo-anestis-primary);
+        --dynamic-overlay-color: var(--angelo-anestis-primary);
+      }
+      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre .tinymce_style--dark { --dynamic-dark-text: var(--angelo-anestis-primary); }
+      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre .tinymce_style--light { --dynamic-light-text: var(--angelo-anestis-secondary-1); }
+      
+      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre.toggleBrandType--secondary { --dynamic-background-color: var(--angelo-anestis-secondary-1); }
+      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--angelo-anestis-secondary-2); }
+      /* Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)*/
+
+
+      /*Site Support Office*/
+      .toggleBrandChoice--site-support-office { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--site-support-office .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--site-support-office .tinymce_style--light { --dynamic-light-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--site-support-office.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--site-support-office.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*Site Support Office*/
+
+
+      /*BayFit Leisure Centre*/
+      .toggleBrandChoice--bayfit-leisure-centre { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--bayfit-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--bayfit-leisure-centre .tinymce_style--light { --dynamic-dark-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--bayfit-leisure-centre.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--bayfit-leisure-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*BayFit Leisure Centre*/
+
+
+      /*Greenwich Baths*/
+      .toggleBrandChoice--greenwich-baths { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--greenwich-baths .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--greenwich-baths .tinymce_style--light { --dynamic-dark-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--greenwich-baths.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--greenwich-baths.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*Greenwich Baths*/
+
+
+      /*Yeppoon Lagoon*/
+      .toggleBrandChoice--yeppoon-lagoon { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--yeppoon-lagoon .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--yeppoon-lagoon .tinymce_style--light { --dynamic-dark-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--yeppoon-lagoon.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--yeppoon-lagoon.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*Yeppoon Lagoon*/
+
+
+      /*Gracemere Swimming Pool*/
+      .toggleBrandChoice--gracemere-swimming-pool { 
+        --dynamic-background-color: var(--rockhampton-aquatic-primary);
+        --dynamic-overlay-color: var(--rockhampton-aquatic-primary);
+      }
+      .toggleBrandChoice--gracemere-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--rockhampton-aquatic-primary); }
+      .toggleBrandChoice--gracemere-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--rockhampton-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--gracemere-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-1); }
+      .toggleBrandChoice--gracemere-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-2); }
+      /*Gracemere Swimming Pool*/
+
+
+      /*Red Poppy Coffee*/
+      .toggleBrandChoice--red-poppy-coffee { 
+        --dynamic-background-color: var(--rockhampton-aquatic-primary);
+        --dynamic-overlay-color: var(--rockhampton-aquatic-primary);
+      }
+      .toggleBrandChoice--red-poppy-coffee .tinymce_style--dark { --dynamic-dark-text: var(--rockhampton-aquatic-primary); }
+      .toggleBrandChoice--red-poppy-coffee .tinymce_style--light { --dynamic-light-text: var(--rockhampton-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--red-poppy-coffee.toggleBrandType--secondary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-1); }
+      .toggleBrandChoice--red-poppy-coffee.toggleBrandType--tertiary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-2); }
+      /*Red Poppy Coffee*/
+
+
+      /*Jubliee*/
+      .toggleBrandChoice--jubliee { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--jubliee .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--jubliee .tinymce_style--light { --dynamic-light-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--jubliee.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--jubliee.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*Jubliee*/
+
+
+      /*Hurstville Aquatic Leisure Centre*/
+      .toggleBrandChoice--hurstville-aquatic-leisure-centre { 
+        --dynamic-background-color: var(--hurstville-aquatic-leisure-centre-primary);
+        --dynamic-overlay-color: var(--hurstville-aquatic-leisure-centre-primary);
+      }
+      .toggleBrandChoice--hurstville-aquatic-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--hurstville-aquatic-leisure-centre-primary); }
+      .toggleBrandChoice--hurstville-aquatic-leisure-centre .tinymce_style--light { --dynamic-light-text: var(--hurstville-aquatic-leisure-centre-secondary-1); }
+      
+      .toggleBrandChoice--hurstville-aquatic-leisure-centre.toggleBrandType--secondary { --dynamic-background-color: var(--hurstville-aquatic-leisure-centre-secondary-1); }
+      .toggleBrandChoice--hurstville-aquatic-leisure-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--hurstville-aquatic-leisure-centre-secondary-2); }
+      /*Hurstville Aquatic Leisure Centre*
+
+
+      /*Peakhurst West Public School*/
+      .toggleBrandChoice--peakhurst-west-public-school { 
+        --dynamic-background-color: var(--bluefit-primary);
+        --dynamic-overlay-color: var(--bluefit-primary);
+      }
+      .toggleBrandChoice--peakhurst-west-public-school .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-primary); }
+      .toggleBrandChoice--peakhurst-west-public-school .tinymce_style--light { --dynamic-light-text: var(--bluefit-secondary-1); }
+      
+      .toggleBrandChoice--peakhurst-west-public-school.toggleBrandType--secondary { --dynamic-background-color: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--peakhurst-west-public-school.toggleBrandType--tertiary { --dynamic-background-color: var(--bluefit-secondary-2); }
+      /*Peakhurst West Public School*/
+
+
+      /*Port Macquarie Swimming Pool */
+      .toggleBrandChoice--port-macquarie-swimming-pool { 
+        --dynamic-background-color: var(--port-macquarie-hastings-pools-primary);
+        --dynamic-overlay-color: var(--port-macquarie-hastings-pools-primary);
+      }
+      .toggleBrandChoice--port-macquarie-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--port-macquarie-hastings-pools-primary); }
+      .toggleBrandChoice--port-macquarie-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--port-macquarie-hastings-pools-secondary-1); }
+      
+      .toggleBrandChoice--port-macquarie-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--port-macquarie-swimming-pools-secondary-1); }
+      .toggleBrandChoice--port-macquarie-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--port-macquarie-swimming-pools-secondary-2); }
+      /*Port Macquarie Swimming Pool */
+
+
+      /*Wauchope Memorial Olympic Pool*/
+      .toggleBrandChoice--wauchope-memorial-olympic-pool { 
+        --dynamic-background-color: var(--port-macquarie-hastings-pools-primary);
+        --dynamic-overlay-color: var(--port-macquarie-hastings-pools-primary);
+      }
+      .toggleBrandChoice--wauchope-memorial-olympic-pool .tinymce_style--dark { --dynamic-dark-text: var(--port-macquarie-hastings-pools-primary); }
+      .toggleBrandChoice--wauchope-memorial-olympic-pool .tinymce_style--light { --dynamic-light-text: var(--port-macquarie-hastings-pools-secondary-1); }
+      
+      .toggleBrandChoice--wauchope-memorial-olympic-pool.toggleBrandType--secondary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-1); }
+      .toggleBrandChoice--wauchope-memorial-olympic-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-2); }
+      /*Wauchope Memorial Olympic Pool*/
+
+
+      /*Glen Waverley Golf Course*/
+      .toggleBrandChoice--glen-waverley-golf-course { 
+        --dynamic-background-color: var(--glen-waverley-golf-course-primary);
+        --dynamic-overlay-color: var(--glen-waverley-golf-course-primary);
+      }
+      .toggleBrandChoice--glen-waverley-golf-course .tinymce_style--dark { --dynamic-dark-text: var(--glen-waverley-golf-course-primary); }
+      .toggleBrandChoice--glen-waverley-golf-course .tinymce_style--light { --dynamic-light-text: var(--glen-waverley-golf-course-secondary-1); }
+      
+      .toggleBrandChoice--glen-waverley-golf-course.toggleBrandType--secondary { --dynamic-background-color: var(--glen-waverley-golf-course-secondary-1); }
+      .toggleBrandChoice--glen-waverley-golf-course.toggleBrandType--tertiary { --dynamic-background-color: var(--glen-waverley-golf-course-secondary-2); }
+      /*Glen Waverley Golf Course*/
+
+
+      /*Oakleigh Golf Course*/
+      .toggleBrandChoice--oakleigh-golf-course { 
+        --dynamic-background-color: var(--oakleigh-golf-course-primary);
+        --dynamic-overlay-color: var(--oakleigh-golf-course-primary);
+      }
+      .toggleBrandChoice--oakleigh-golf-course .tinymce_style--dark { --dynamic-dark-text: var(--oakleigh-golf-course-primary); }
+      .toggleBrandChoice--oakleigh-golf-course .tinymce_style--light { --dynamic-light-text: var(--oakleigh-golf-course-secondary-1); }
+      
+      .toggleBrandChoice--oakleigh-golf-course.toggleBrandType--secondary { --dynamic-background-color: var(--oakleigh-golf-course-secondary-1); }
+      .toggleBrandChoice--oakleigh-golf-course.toggleBrandType--tertiary { --dynamic-background-color: var(--oakleigh-golf-course-secondary-2); }
+      /*Oakleigh Golf Course*/
+
+
+      /*Coffs Harbour War Memorial Olympic Pool*/
+      .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool { 
+        --dynamic-background-color: var(--coffs-harbour-pools-primary);
+        --dynamic-overlay-color: var(--coffs-harbour-pools-primary);
+      }
+      .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool .tinymce_style--dark { --dynamic-dark-text: var(--coffs-harbour-pools-primary); }
+      .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool .tinymce_style--light { --dynamic-light-text: var(--coffs-harbour-pools-secondary-1); }
+      
+      .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool.toggleBrandType--secondary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-1); }
+      .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-2); }
+      /*Coffs Harbour War Memorial Olympic Pool*/
+
+
+      /*Woolgoolga Swimming Pool*/
+      .toggleBrandChoice--woolgoolga-swimming-pool { 
+        --dynamic-background-color: var(--coffs-harbour-pools-primary);
+        --dynamic-overlay-color: var(--coffs-harbour-pools-primary);
+      }
+      .toggleBrandChoice--woolgoolga-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--coffs-harbour-pools-primary); }
+      .toggleBrandChoice--woolgoolga-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--coffs-harbour-pools-secondary-1); }
+      
+      .toggleBrandChoice--woolgoolga-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-1); }
+      .toggleBrandChoice--woolgoolga-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-2); }
+      /*Woolgoolga Swimming Pool*/
+
+
+      /*Gladstone Aquatic Centre*/
+      .toggleBrandChoice--gladstone-aquatic-centre { 
+        --dynamic-background-color: var(--gladstone-aquatic-primary);
+        --dynamic-overlay-color: var(--gladstone-aquatic-primary);
+      }
+      .toggleBrandChoice--gladstone-aquatic-centre .tinymce_style--dark { --dynamic-dark-text: var(--gladstone-aquatic-primary); }
+      .toggleBrandChoice--gladstone-aquatic-centre .tinymce_style--light { --dynamic-light-text: var(--gladstone-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--gladstone-aquatic-centre.toggleBrandType--secondary { --dynamic-background-color: var(--gladstone-aquatic-secondary-1); }
+      .toggleBrandChoice--gladstone-aquatic-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--gladstone-aquatic-secondary-2); }
+      /*Gladstone Aquatic Centre*/
+
+
+      /*Hurstville Golf Course*/
+      .toggleBrandChoice--hurstville-golf-course { 
+        --dynamic-background-color: var(--hurstville-golf-course-primary);
+        --dynamic-overlay-color: var(--hurstville-golf-course-primary);
+      }
+      .toggleBrandChoice--hurstville-golf-course .tinymce_style--dark { --dynamic-dark-text: var(--hurstville-golf-course-primary); }
+      .toggleBrandChoice--hurstville-golf-course .tinymce_style--light { --dynamic-light-text: var(--hurstville-golf-course-secondary-1); }
+      
+      .toggleBrandChoice--hurstville-golf-course.toggleBrandType--secondary { --dynamic-background-color: var(--hurstville-golf-course-secondary-1); }
+      .toggleBrandChoice--hurstville-golf-course.toggleBrandType--tertiary { --dynamic-background-color: var(--hurstville-golf-course-secondary-2); }
+      /*Hurstville Golf Course*/
+
+
+      /*Lane Cove Aquatic Leisure Centre*/
+      .toggleBrandChoice--lane-cove-aquatic-leisure-centre { 
+        --dynamic-background-color: var(--lane-cove-aquatic-centre-primary);
+        --dynamic-overlay-color: var(--lane-cove-aquatic-centre-primary);
+      }
+      .toggleBrandChoice--lane-cove-aquatic-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--lane-cove-aquatic-centre-primary); }
+      .toggleBrandChoice--lane-cove-aquatic-leisure-centre .tinymce_style--light { --dynamic-light-text: var(--lane-cove-aquatic-centre-secondary-1); }
+      
+      .toggleBrandChoice--lane-cove-aquatic-leisure-centre.toggleBrandType--secondary { --dynamic-background-color: var(--lane-cove-aquatic-leisure-centre-secondary-1); }
+      .toggleBrandChoice--lane-cove-aquatic-leisure-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--lane-cove-aquatic-leisure-centre-secondary-2); }
+      /*Lane Cove Aquatic Leisure Centre*/
+
+
+      /*Moss Vale War Memorial Aquatic Centre*/
+      .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre { 
+        --dynamic-background-color: var(--moss-vale-aquatic-centre-primary);
+        --dynamic-overlay-color: var(--moss-vale-aquatic-centre-primary);
+      }
+      .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre .tinymce_style--dark { --dynamic-dark-text: var(--moss-vale-aquatic-centre-primary); }
+      .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre .tinymce_style--light { --dynamic-light-text: var(--moss-vale-aquatic-centre-secondary-1); }
+      
+      .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre.toggleBrandType--secondary { --dynamic-background-color: var(--moss-vale-aquatic-centre-secondary-1); }
+      .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--moss-vale-aquatic-centre-secondary-2); }
+      /*Moss Vale War Memorial Aquatic Centre*/
+
+
+      /*Lambton Swimming Pool*/
+      .toggleBrandChoice--lambton-swimming-pool { 
+        --dynamic-background-color: var(--newcastle-pools-primary);
+        --dynamic-overlay-color: var(--newcastle-pools-primary);
+      }
+      .toggleBrandChoice--lambton-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--newcastle-pools-primary); }
+      .toggleBrandChoice--lambton-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--newcastle-pools-secondary-1); }
+      
+      .toggleBrandChoice--lambton-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--newcastle-pools-secondary-1); }
+      .toggleBrandChoice--lambton-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--newcastle-pools-secondary-2); }
+      /*Lambton Swimming Pool*/
+
+
+      /*Sawtell Swimming Pool*/
+      .toggleBrandChoice--sawtell-swimming-pool { 
+        --dynamic-background-color: var(--coffs-harbour-pools-primary);
+        --dynamic-overlay-color: var(--coffs-harbour-pools-primary);
+      }
+      .toggleBrandChoice--sawtell-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--coffs-harbour-pools-primary); }
+      .toggleBrandChoice--sawtell-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--coffs-harbour-pools-secondary-1); }
+      
+      .toggleBrandChoice--sawtell-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-1); }
+      .toggleBrandChoice--sawtell-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--coffs-harbour-pools-secondary-2); }
+      /*Sawtell Swimming Pool*/
+
+
+      /*Stockton Swimming Pool*/
+      .toggleBrandChoice--stockton-swimming-pool { 
+        --dynamic-background-color: var(--newcastle-pools-primary);
+        --dynamic-overlay-color: var(--newcastle-pools-primary);
+      }
+      .toggleBrandChoice--stockton-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--newcastle-pools-primary); }
+      .toggleBrandChoice--stockton-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--newcastle-pools-secondary-1); }
+      
+      .toggleBrandChoice--stockton-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--newcastle-pools-secondary-1); }
+      .toggleBrandChoice--stockton-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--newcastle-pools-secondary-2); }
+      /*Stockton Swimming Pool*/
+
+
+      /*Beresfield Swimming Pool (Cafe Only)*/
+      .toggleBrandChoice--beresfield-swimming-pool-cafe-only { 
+        --dynamic-background-color: var(--newcastle-pools-primary);
+        --dynamic-overlay-color: var(--newcastle-pools-primary);
+      }
+      .toggleBrandChoice--beresfield-swimming-pool-cafe-only .tinymce_style--dark { --dynamic-dark-text: var(--newcastle-pools-primary); }
+      .toggleBrandChoice--beresfield-swimming-pool-cafe-only .tinymce_style--light { --dynamic-light-text: var(--newcastle-pools-secondary-1); }
+      
+      .toggleBrandChoice--beresfield-swimming-pool-cafe-only.toggleBrandType--secondary { --dynamic-background-color: var(--newcastle-pools-secondary-1); }
+      .toggleBrandChoice--beresfield-swimming-pool-cafe-only.toggleBrandType--tertiary { --dynamic-background-color: var(--newcastle-pools-secondary-2); }
+      /*Beresfield Swimming Pool (Cafe Only)*/
+
+
+      /*Mayfield Swimming Pool*/
+      .toggleBrandChoice--mayfield-swimming-pool { 
+        --dynamic-background-color: var(--newcastle-pools-primary);
+        --dynamic-overlay-color: var(--newcastle-pools-primary);
+      }
+      .toggleBrandChoice--mayfield-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--newcastle-pools-primary); }
+      .toggleBrandChoice--mayfield-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--newcastle-pools-secondary-1); }
+      
+      .toggleBrandChoice--mayfield-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--newcastle-pools-secondary-1); }
+      .toggleBrandChoice--mayfield-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--newcastle-pools-secondary-2); }
+      /*Mayfield Swimming Pool*/
+
+
+      /*Wallsend Swimming Pool*/
+      .toggleBrandChoice--wallsend-swimming-pool { 
+        --dynamic-background-color: var(--newcastle-pools-primary);
+        --dynamic-overlay-color: var(--newcastle-pools-primary);
+      }
+      .toggleBrandChoice--wallsend-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--newcastle-pools-primary); }
+      .toggleBrandChoice--wallsend-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--newcastle-pools-secondary-1); }
+      
+      .toggleBrandChoice--wallsend-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--newcastle-pools-secondary-1); }
+      .toggleBrandChoice--wallsend-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--newcastle-pools-secondary-2); }
+      /*Wallsend Swimming Pool*/
+
+
+      /*Aquadome*/
+      .toggleBrandChoice--aquadome { 
+        --dynamic-background-color: var(--aquadome-primary-1);
+        --dynamic-overlay-color: var(--aquadome-primary-1);
+      }
+      .toggleBrandChoice--aquadome .tinymce_style--dark { --dynamic-dark-text: var(--aquadome-primary-1); }
+      .toggleBrandChoice--aquadome .tinymce_style--light { --dynamic-light-text: var(--aquadome-secondary-1); }
+      
+      .toggleBrandChoice--aquadome.toggleBrandType--secondary { --dynamic-background-color: var(--aquadome-primary-2); }
+      .toggleBrandChoice--aquadome.toggleBrandType--tertiary { --dynamic-background-color: var(--aquadome-secondary-1); }
+      /*Aquadome*/
+
+
+      /*Kendall Swimming Pool*/
+      .toggleBrandChoice--kendall-swimming-pool { 
+        --dynamic-background-color: var(--port-macquarie-hastings-pools-primary);
+        --dynamic-overlay-color: var(--port-macquarie-hastings-pools-primary);
+      }
+      .toggleBrandChoice--kendall-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--port-macquarie-hastings-pools-primary); }
+      .toggleBrandChoice--kendall-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--port-macquarie-hastings-pools-secondary-1); }
+      
+      .toggleBrandChoice--kendall-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-1); }
+      .toggleBrandChoice--kendall-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-2); }
+      /*Kendall Swimming Pool*/
+
+
+      /*Wollondilly Leisure Centre (Picton Leisure Centre)*/
+      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre { 
+        --dynamic-background-color: var(--wollondilly-leisure-centre-primary);
+        --dynamic-overlay-color: var(--wollondilly-leisure-centre-primary);
+      }
+      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--wollondilly-leisure-centre-primary); }
+      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre .tinymce_style--light { --dynamic-light-text: var(--wollondilly-leisure-centre-secondary-1); }
+      
+      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre.toggleBrandType--secondary { --dynamic-background-color: var(--wollondilly-leisure-centre-secondary-1); }
+      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--wollondilly-leisure-centre-secondary-2); }
+      /*Wollondilly Leisure Centre (Picton Leisure Centre)*/
+
+
+      /*Laurieton Swimming Pool*/
+      .toggleBrandChoice--laurieton-swimming-pool { 
+        --dynamic-background-color: var(--port-macquarie-hastings-pools-primary);
+        --dynamic-overlay-color: var(--port-macquarie-hastings-pools-primary);
+      }
+      .toggleBrandChoice--laurieton-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--port-macquarie-hastings-pools-primary); }
+      .toggleBrandChoice--laurieton-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--port-macquarie-hastings-pools-secondary-1); }
+      
+      .toggleBrandChoice--laurieton-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-1); }
+      .toggleBrandChoice--laurieton-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--port-macquarie-hastings-pools-secondary-2); }
+      /*Laurieton Swimming Pool*/
+
+
+      /*Mount Larcom Swimming Pool*/
+      .toggleBrandChoice--mount-larcom-swimming-pool { 
+        --dynamic-background-color: var(--gladstone-aquatic-primary);
+        --dynamic-overlay-color: var(--gladstone-aquatic-primary);
+      }
+      .toggleBrandChoice--mount-larcom-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--gladstone-aquatic-primary); }
+      .toggleBrandChoice--mount-larcom-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--gladstone-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--mount-larcom-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--gladstone-aquatic-secondary-1); }
+      .toggleBrandChoice--mount-larcom-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--gladstone-aquatic-secondary-2); }
+      /*Mount Larcom Swimming Pool*/
+
+
+      /*Mount Morgan Swimming Pool*/
+      .toggleBrandChoice--mount-morgan-swimming-pool { 
+        --dynamic-background-color: var(--rockhampton-aquatic-primary);
+        --dynamic-overlay-color: var(--rockhampton-aquatic-primary);
+      }
+      .toggleBrandChoice--mount-morgan-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--rockhampton-aquatic-primary); }
+      .toggleBrandChoice--mount-morgan-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--rockhampton-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--mount-morgan-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-1); }
+      .toggleBrandChoice--mount-morgan-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-2); }
+      /*Mount Morgan Swimming Pool*/
+
+
+      /*2nd World War Memorial Swimming Pool (South Rocky Swimming Pool)*/
+      .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool { 
+        --dynamic-background-color: var(--rockhampton-aquatic-primary);
+        --dynamic-overlay-color: var(--rockhampton-aquatic-primary);
+      }
+      .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool .tinymce_style--dark { --dynamic-dark-text: var(--rockhampton-aquatic-primary); }
+      .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool .tinymce_style--light { --dynamic-light-text: var(--rockhampton-aquatic-secondary-1); }
+      
+      .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool.toggleBrandType--secondary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-1); }
+      .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool.toggleBrandType--tertiary { --dynamic-background-color: var(--rockhampton-aquatic-secondary-2); }
+      /*2nd World War Memorial Swimming Pool (South Rocky Swimming Pool)*/
+
+
+      /*Malvern Tennis Centre*/
+      .toggleBrandChoice--malvern-tennis-centre { 
+        --dynamic-background-color: var(--stonnington-tennis-centres-primary);
+        --dynamic-overlay-color: var(--stonnington-tennis-centres-primary);
+      }
+      .toggleBrandChoice--malvern-tennis-centre .tinymce_style--dark { --dynamic-dark-text: var(--stonnington-tennis-centres-primary); }
+      .toggleBrandChoice--malvern-tennis-centre .tinymce_style--light { --dynamic-light-text: var(--stonnington-tennis-centres-secondary-1); }
+      
+      .toggleBrandChoice--malvern-tennis-centre.toggleBrandType--secondary { --dynamic-background-color: var(--stonnington-tennis-centres-secondary-1); }
+      .toggleBrandChoice--malvern-tennis-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--stonnington-tennis-centres-secondary-2); }
+      /*Malvern Tennis Centre*/
+
+
+      /*Orrong Park Tennis Centre*/
+      .toggleBrandChoice--orrong-park-tennis-centre { 
+        --dynamic-background-color: var(--stonnington-tennis-centres-primary);
+        --dynamic-overlay-color: var(--stonnington-tennis-centres-primary);
+      }
+      .toggleBrandChoice--orrong-park-tennis-centre .tinymce_style--dark { --dynamic-dark-text: var(--stonnington-tennis-centres-primary); }
+      .toggleBrandChoice--orrong-park-tennis-centre .tinymce_style--light { --dynamic-light-text: var(--stonnington-tennis-centres-secondary-1); }
+      
+      .toggleBrandChoice--orrong-park-tennis-centre.toggleBrandType--secondary { --dynamic-background-color: var(--stonnington-tennis-centres-secondary-1); }
+      .toggleBrandChoice--orrong-park-tennis-centre.toggleBrandType--tertiary { --dynamic-background-color: var(--stonnington-tennis-centres-secondary-2); }
+      /*Orrong Park Tennis Centre*/
+
+      html {
+        font-family: 'Montserrat';
+        word-break: break-word;
+      }
+      
+      /* ====================== TYPOGRAPHY ====================== */
+      /* ======================            ====================== */
+
+
+
+      h1 {
+        font-size: 47.9pt;
+        font-weight: bold;
+        line-height: 1;
+      }
+      
+      h2 {
+        font-size: 0.44rem;
+        font-weight: bold;
+        letter-spacing: -0.004rem;
+        line-height: 1;
+        margin-bottom: 0.06rem;
+        color: var(--dynamic-background-color);
+      }
+      
+      h3 {
+        font-size: 0.4rem;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: -0.007rem;
+      }
+      
+      p, li {
+        font-size: 0.29rem;
+        letter-spacing: -0.005rem;
+      }
+     
+
+      td {
+        font-size: 0.3rem;
+        padding: 0.14rem 0.08rem;
+        width: 1rem;
+        letter-spacing: -0.002rem;
+        height: 0.82rem;
+        line-height: 1;
+            word-break: break-word;
+      }
+
+      li {
+        list-style-type: none;
+        position: relative;
+        padding-left: 0.22rem;
+        line-height: 1.3;
+      }
+
+      ul {
+        margin-top: 0.06rem;
+      }
+      
+      ul li:before {
+        content: "";
+        position: absolute;
+        left: 0.04rem;
+        top: 0.17rem;
+        border-radius: 50%;
+        height: 0.05rem;
+        width: 0.05rem;
+        background-color: var(--tint-100);
+      }
+      
+      .fit {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0.9rem 0.9rem 1rem;
+      }
+
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+            
+      /* ====================== HEADER ====================== */
+      /* ======================        ====================== */
+
+      
+      .trainer-container  {
+        height: 4.7rem;
+        margin-bottom: 0.45rem;
+        min-height: 4.53rem;
+      }
+      
+      .trainer-portrait {
+        position: relative;
+        height: 4.37rem;
+        width: 3.8rem;
+      }
+
+      .trainer-name {
+        font-weight: 800;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        color: var(--dynamic-background-color);
+        width: 56%;
+        margin-left: 0.5rem;
+        margin-top: 2.31rem; 
+        line-height: 1.08;
+        letter-spacing: 0.02rem;
+      }     
+      
+      /* ====================== SECTION ====================== */
+      /* ======================         ====================== */
+      
+      .details-container {
+        max-height: 10.16rem;
+      }
+      
+      .qualifications {
+        padding-bottom: 0.4rem;
+      }
+
+      .professional-experience {
+        margin-bottom: 0.33rem;
+      }
+      
+      .professional-experience p {
+        padding-bottom: 0.13rem;       
+      }
+
+      /* ====================== FOOTER ====================== */
+      /* ======================        ====================== */
+
+
+      .footer-image {
+        position: relative;
+        height: 3.57rem;
+        width: 12.2rem;
+        margin-top: 0.57rem;
+      }
+
+      .footer {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 100%;
+      }
+
+      .logo {
+        max-width: 32.8%;
+        height: 49pt;
+        object-fit: contain;
+        object-position: left bottom;
+        margin-right: 0.1rem;
+        margin-bottom: 0.2rem;
+      }
+      
+      .toggleBrandChoice--greenwich-baths .logo { 
+        height: 70pt;
+      }
+
+      
+      .placeholder {
+        background-image: url('https://files.outfit.io/media_library_items/177597/1.png');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: {{placeholder-opacity-CBA}}{{^placeholder-opacity-CBA}}0.5{{/placeholder-opacity-CBA}};
+        z-index: 5;
+        pointer-events: none;
+      }
+      
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" data-reduce-export-font-size-by-percent="0" data-reduce-firefox-font-size-by-percent="0" data-prevent-export-overflow="false" class="toggleBrandChoice--{{{BF_toggle-brand}}}{{^BF_toggle-brand}}{{/BF_toggle-brand}} toggleBrandType--{{{BF_toggle-brand--type}}}{{^BF_toggle-brand--type}}{{/BF_toggle-brand--type}}">
+    <div class="page">
+      <div class="bleed">
+        <div class="container fit">
+          
+          <header class="trainer-container">
+            <div class="trainer-portrait"><div class="reposition-fix">{{{ PTP-photo }}}</div></div>
+            <div class="trainer-name textFit">{{{ PTP-trainer-name }}}</div>
+          </header>
+          
+          <section class="details-container" data-max-height="css">
+            <div class="qualifications">{{{ PTP-qualifications }}}</div>
+            <div class="professional-experience">{{{ PTP-professional-experience }}}</div>
+            <div class="contact">{{{ PTP-contact }}}</div> 
+          </section>
+          
+          <div class="footer js-location-controller-container">
+            <img class="logo js-location-controller-logo" src="https://files.outfit.io/media_library_items/174922/bay-fit-leisure-centre.svg">
+          </div><!--footer-->     
+                    
+        </div><!--container fit-->
+      </div><!--bleed-->
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+      
+      function replaceData(data, className, lookup, fallbackColor) {
+        let targets = document.querySelectorAll(className);
+                
+
+        targets.forEach(function (target) {
+          if(target.innerText.search(lookup) != -1 && (data != "" || data.length != 0)){
+            console.log(data)
+            target.innerHTML = target.innerHTML.split(lookup).join(data);
+          } else{
+            target.innerHTML = target.innerHTML.split(lookup).join("<span style='color: "+fallbackColor+"'>"+lookup+"</span>");
+          }
+        });
+      }
+      
+            replaceData(`{{#metadata}}{{export_id}}{{/metadata}}{{^metadata}}XXXXX{{/metadata}}`, ".data-replace", "[export_id]", "blue");
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit',
+        fitMode: 'vertical'
+      });
+      
+      setInterval(() => textFitMin('.textFit', 20), 500);
+
+            function locationController() {
+        const location = '{{BF_toggle-brand}}' || 'belmont-oasis-leisure-centre';
+        const containers = document.querySelectorAll('.js-location-controller-container');
+        const locationsObj = {
+          'belmont-oasis-leisure-centre': {
+            logo: 'https://files.outfit.io/media_library_items/175034/Belmont%2520Oasis_logo_hz_colour.png',
+            phone: '(08) 9277 1622',
+            website: ''
+          },
+          'angelo-anestis-aquatic-centre-bexley-aquatic-centre': {
+            logo: 'https://files.outfit.io/media_library_items/174538/angelo-anestis-aquatic-centre.svg',
+            phone: '(02) 9150 5288',
+            website: 'www.bexleyaquatic.com.au'
+          },          
+          'site-support-office': {
+            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
+            phone: '(03) 8595 5050',
+            website: ''
+          },
+          'bayfit-leisure-centre': {
+            logo: 'https://files.outfit.io/media_library_items/174922/bay-fit-leisure-centre.svg',
+            phone: '(03) 9392 2222',
+            website: 'www.bayfit.com.au'
+          },
+          'greenwich-baths': {
+            logo: 'https://files.outfit.io/media_library_items/173121/greenwich-baths-sydney.svg',
+            phone: '(02) 9438 5922',
+            website: 'www.greenwichbaths.com.au'
+          },
+          'yeppoon-lagoon': {
+            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
+            phone: '0499 337 657',
+            website: ''
+          },
+          'gracemere-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
+            phone: '(07) 4933 2662',
+            website: 'www.rockhamptonaquatic.com.au'
+          },
+          'red-poppy-coffee': {
+            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
+            phone: '',
+            website: ''
+          },
+          'jubliee': {
+            logo: 'https://files.outfit.io/media_library_items/174558/bluey%2527s-swim-school.svg',
+            phone: '',
+            website: ''
+          },
+          'hurstville-aquatic-leisure-centre': {
+            logo: 'https://files.outfit.io/media_library_items/174537/hurstville-aquatic-leisure-centre.svg',
+            phone: '(02) 9585 9600',
+            website: 'www.hurstvilleaquatic.com.au'
+          },  
+          'peakhurst-west-public-school': {
+            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
+            phone: '',
+            website: ''
+          },  
+          'port-macquarie-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
+            phone: '(02) 6583 1635',
+            website: 'phmpools.com.au'
+          },  
+          'wauchope-memorial-olympic-pool': {
+            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
+            phone: '(02) 6585 2001',
+            website: 'phmpools.com.au'
+          },  
+          'glen-waverley-golf-course': {
+            logo: 'https://files.outfit.io/media_library_items/173095/glen-waverley-golf-course.svg',
+            phone: '(03) 9560 7806',
+            website: 'www.glenwaverleygolf.com.au'
+          },  
+          'oakleigh-golf-course': {
+            logo: 'https://files.outfit.io/media_library_items/174547/oakleigh-golf-course.svg',
+            phone: '(03) 9568 3307',
+            website: 'http://www.oakleighgolf.com.au/'
+          },  
+          'coffs-harbour-war-memorial-olympic-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
+            phone: '(02) 6652 1779',
+            website: 'Coffsharbourpools.com.au'
+          },  
+          'woolgoolga-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
+            phone: '(02) 6654 8291',
+            website: 'Coffsharbourpools.com.au'
+          },  
+          'gladstone-aquatic-centre': {
+            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
+            phone: '(07) 4972 6822',
+            website: 'Gladstoneaquatic.com.au'
+          },  
+          'hurstville-golf-course': {
+            logo: 'https://files.outfit.io/media_library_items/173093/hurstville-golf-course.svg',
+            phone: '(02) 9534 5024',
+            website: 'www.hurstvillegolf.com.au'
+          },  
+          'lane-cove-aquatic-leisure-centre': {
+            logo: 'https://files.outfit.io/media_library_items/174548/lane-cove-aquatic-leisure-centre.svg',
+            phone: '(02) 9418 8888',
+            website: 'www.lanecoveaquatic.com.au'
+          },  
+          'moss-vale-war-memorial-aquatic-centre': {
+            logo: 'https://files.outfit.io/media_library_items/173106/moss-vale-war-memorial-aquatic-centre.svg',
+            phone: '(02) 4868 1967',
+            website: 'www.mossvaleaquatic.com.au'
+          },  
+          'lambton-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
+            phone: '(02) 4952 5522',
+            website: 'newcastlepools.com.au'
+          },  
+          'sawtell-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/174552/coffs-harbour-pools.svg',
+            phone: '(02) 6658 7497',
+            website: 'Coffsharbourpools.com.au'
+          },  
+          'stockton-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
+            phone: '(02) 4928 1589',
+            website: 'newcastlepools.com.au'
+          },  
+          'beresfield-swimming-pool-cafe-only': {
+            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
+            phone: '(02) 4978 4090',
+            website: ''
+          },  
+          'mayfield-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
+            phone: '(02) 9585 9600',
+            website: 'pmhpools.com.au'
+          },  
+          'wallsend-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
+            phone: '(02) 4955 8899',
+            website: 'newcastlepools.com.au'
+          },  
+          'aquadome': {
+            logo: 'https://files.outfit.io/media_library_items/174550/aquadome.svg',
+            phone: '(08) 8287 8800',
+            website: ''
+          },  
+          'kendall-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
+            phone: '',
+            website: ''
+          },  
+          'wollondilly-leisure-centre-picton-leisure-centre': {
+            logo: 'https://files.outfit.io/media_library_items/174549/wollondilly-leisure-centre.svg',
+            phone: '(02) 4677 1251',
+            website: 'www.wclc.com.au'
+          },  
+          'laurieton-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
+            phone: '',
+            website: 'pmhpools.com.au'
+          },  
+          'mount-larcom-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
+            phone: '(07) 4975 1185',
+            website: 'Gladstoneaquatic.com.au'
+          },  
+          'mount-morgan-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
+            phone: '(07) 4938 1500',
+            website: 'www.rockhamptonaquatic.com.au'
+          },  
+          '2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool': {
+            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
+            phone: '(07) 4922 1981',
+            website: 'www.rockhamptonaquatic.com.au'
+          },  
+          'malvern-tennis-centre': {
+            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
+            phone: '',
+            website: ''
+          },  
+          'orrong-park-tennis-centre': {
+            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
+            phone: '',
+            website: ''
+          }
+        }
+
+        containers.forEach(container => {
+          const logo = container.querySelector('.js-location-controller-logo');
+          const phone = container.querySelector('.js-location-controller-phone');
+          const website = container.querySelector('.js-location-controller-website');
+
+          logo.src = locationsObj[location]['logo'];
+          phone.innerText = locationsObj[location]['phone'];
+          website.innerText = locationsObj[location]['website'];
+        });
+      }
+
+      locationController();
+      
+
+    </script>
+
+
+  </body>
+</html>
