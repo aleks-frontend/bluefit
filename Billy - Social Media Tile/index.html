@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html >
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css" type="text/css">
+  <style>
+    :root {
+      --salmon-bg: #ff8c69;
+      --white: #ff8c69
+    }
+    body .data-theme-choice="salmon-bg" {
+      background-color: var(--salmon-bg);
+    }
+    body .data-theme-choice="white-bg" {
+      background-color: var(--white-bg);
+    }
+    </style>
+</head>
+<body data-theme-choice="{{billy-social-media-theme}}">
+  <article>
+    <p style="font-size:{{billy-social-media-text-size}}rem">{{billy-social-media-text}}</p>
+  </article>
+</body>
+</html>
