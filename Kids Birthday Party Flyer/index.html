@@ -277,6 +277,8 @@
       .info {
         margin-left: 0.98rem;
         text-align: right;
+        width: 210pt;
+        font-size: 0;
       }
 
       .facilityName {
@@ -587,10 +589,14 @@
     </style>
   </head>
   <body style="background: white" data-crop="{{show-crop}}" 
+        data-reduce-export-font-size-by-percent="0" 
+        data-reduce-firefox-font-size-by-percent="0" 
+        data-prevent-export-overflow="false"
+        data-toggle-brand="{{BF_toggle-brand}}"
+        data-locations-object="{{account.snippets.brandToggleObject}}"        
         class="toggleBrandChoice--{{{BF_toggle-brand}}}
                {{^BF_hero-image--kbpf}}no-hero-image{{/BF_hero-image--kbpf}}
-               {{^BF_heading--kbpf}}no-heading{{/BF_heading--kbpf}}" 
-        data-reduce-export-font-size-by-percent="0" data-reduce-firefox-font-size-by-percent="0" data-prevent-export-overflow="false">
+               {{^BF_heading--kbpf}}no-heading{{/BF_heading--kbpf}}" >
 
     <div class="page">
 
@@ -604,7 +610,7 @@
               </div><!--backgroundImage-->
 
               <div class="heading heading--mask u-heading-patch">{{{BF_heading--kbpf}}}</div><!--heading--1-->
-              <div class="heading heading--3 u-heading-patch" data-max-height="290">{{{BF_heading--kbpf}}}</div><!--heading--3 440-->
+              <div class="heading heading--3 u-heading-patch" data-max-height="305">{{{BF_heading--kbpf}}}</div><!--heading--3 440-->
               <div class="heading heading--2 u-heading-patch">{{{BF_heading--kbpf}}}</div><!--heading--2-->
               <div class="heading heading--1 u-heading-patch">{{{BF_heading--kbpf}}}</div><!--heading--1-->
 
@@ -615,11 +621,11 @@
             </div><!--body__bottom-->
             {{/BF_subheading--kbpf}}
           </div><!--body-->
-          <div class="footer footer--frontPage js-location-controller-container">
-            <img src="https://files.outfit.io/media_library_items/174550/aquadome.svg" class="logo js-location-controller-logo"><!--logo-->
+          <div class="footer footer--frontPage">
+            <img src="https://files.outfit.io/media_library_items/174550/aquadome.svg" class="logo" data-location-property="logo"><!--logo-->
             <div class="info">
-              <div class="facilityName js-location-controller-facility-name">Aquadome</div><!--facilityName-->
-              <div class="address js-location-controller-address">1 Crockerton Road, Elizabeth SA 5112</div><!--address-->
+              <div class="facilityName textFit" data-location-property="name">Aquadome</div><!--facilityName-->
+              <div class="address textFit" data-location-property="address">1 Crockerton Road, Elizabeth SA 5112</div><!--address-->
             </div><!--info-->
           </div><!--footer-->
         </div><!--container fit-->
@@ -709,12 +715,12 @@
               {{/collection.BF_copy--kbpf}}
             </div><!--body__inner-->
           </div><!--body-->
-          <div class="footer footer--backPage js-location-controller-container">
+          <div class="footer footer--backPage">
             <div class="disclaimer" data-max-line="1">{{{BF_disclaimer--kbpf}}}</div><!--disclaimer-->
             <div class="footer__bottom">
               <div class="order">
                 <div class="order__title">book online now</div><!--order__title-->
-                <div class="order__url js-location-controller-website"></div><!--order__url-->
+                <div class="order__url" data-location-property="website"></div><!--order__url-->
               </div><!--order-->
               <div class="ownedBy">
                 {{#BF_owned-by--kbpf}}
@@ -802,7 +808,7 @@
       // Calling text size restriction functions once the fonts are loaded
       // All external font-families need to be added to 'fonts' array
       document.addEventListener('DOMContentLoaded', function(event) {
-        const fonts = ['Circular'];
+        const fonts = ['Montserrat'];
         const fontObservers = [];
 
         fonts.forEach(font => {
@@ -829,244 +835,8 @@
       TextFit.fit({
         selector: '.textFit'
       });
-
-      function locationController() {
-        const location = '{{BF_toggle-brand}}' || 'aquadome';
-        const containers = document.querySelectorAll('.js-location-controller-container');
-        const locationsObj = {
-          'belmont-oasis-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/175034/Belmont%2520Oasis_logo_hz_colour.png',
-            facility: 'Belmont Oasis Leisure Centre',
-            address: '1 Progress Way, Belmont WA 6104',
-            website: ''
-          },
-          'angelo-anestis-aquatic-centre-bexley-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174538/angelo-anestis-aquatic-centre.svg',
-            facility: 'Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)',
-            address: '98C Preddys Rd, Bexley North NSW 2207',
-            website: 'www.bexleyaquatic.com.au'
-          },          
-          'site-support-office': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            facility: 'Site Support Office',
-            address: '835 Mt Alexander Rd, Moonee Ponds VIC',
-            website: ''
-          },
-          'bayfit-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174922/bay-fit-leisure-centre.svg',
-            facility: 'BayFit Leisure Centre',
-            address: '257 Mason Street, Altona North, VIC 3025',
-            website: 'www.bayfit.com.au'
-          },
-          'greenwich-baths': {
-            logo: 'https://files.outfit.io/media_library_items/173121/greenwich-baths-sydney.svg',
-            facility: 'Greenwich Baths',
-            address: '4 Albert St, Greenwich NSW 2065',
-            website: 'www.greenwichbaths.com.au'
-          },
-          'yeppoon-lagoon': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            facility: 'Yeppoon Lagoon',
-            address: '1 Lagoon Place, Yeppoon QLD 4703',
-            website: ''
-          },
-          'gracemere-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            facility: 'Gracemere Swimming Pool',
-            address: 'Cedric Archer Park, Fisher Street, Gracemere, Queensland 4702',
-            website: 'www.rockhamptonaquatic.com.au'
-          },
-          'red-poppy-coffee': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            facility: 'Red Poppy Coffee',
-            address: '2 Graeme Acton Way, Rockhampton City QLD 4700',
-            website: ''
-          },
-          'jubliee': {
-            logo: 'https://files.outfit.io/media_library_items/174558/bluey%2527s-swim-school.svg',
-            facility: 'Jubliee ',
-            address: '',
-            website: ''
-          },
-          'hurstville-aquatic-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174537/hurstville-aquatic-leisure-centre.svg',
-            facility: 'Hurstville Aquatic Leisure Centre',
-            address: 'King Georges Rd & Forest Rd, Hurstville NSW 2220',
-            website: 'www.hurstvilleaquatic.com.au'
-          },  
-          'peakhurst-west-public-school': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            facility: 'Peakhurst West Public School',
-            address: 'Ogilvy Street Peakhurst NSW 2210',
-            website: ''
-          },  
-          'port-macquarie-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            facility: 'Port Macquarie Swimming Pool ',
-            address: '28 Gordon St, Port Macquarie NSW 2444',
-            website: 'phmpools.com.au'
-          },  
-          'wauchope-memorial-olympic-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            facility: 'Wauchope Memorial Olympic Pool',
-            address: '3 Cameron St, Wauchope NSW 2446',
-            website: 'phmpools.com.au'
-          },  
-          'glen-waverley-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/173095/glen-waverley-golf-course.svg',
-            facility: 'Glen Waverley Golf Course',
-            address: '915 Waverley Rd, Glen Waverley VIC 3150',
-            website: 'www.glenwaverleygolf.com.au'
-          },  
-          'oakleigh-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/174547/oakleigh-golf-course.svg',
-            facility: 'Oakleigh Golf Course',
-            address: '2 Park Rd, Oakleigh VIC 3166',
-            website: 'http://www.oakleighgolf.com.au/'
-          },  
-          'coffs-harbour-war-memorial-olympic-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
-            facility: 'Coffs Harbour War Memorial Olympic Pool',
-            address: 'Coffs Harbour War Memorial Olympic Pool',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'woolgoolga-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
-            facility: 'Woolgoolga Swimming Pool',
-            address: '86 Beach St, Woolgoolga NSW 2456',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'gladstone-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
-            facility: 'Gladstone Aquatic Centre',
-            address: '60 Tank St, West Gladstone QLD 4680',
-            website: 'Gladstoneaquatic.com.au'
-          },  
-          'hurstville-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/173093/hurstville-golf-course.svg',
-            facility: 'Hurstville Golf Course',
-            address: 'Lorraine St, Peakhurst NSW 2210',
-            website: 'www.hurstvillegolf.com.au'
-          },  
-          'lane-cove-aquatic-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174548/lane-cove-aquatic-leisure-centre.svg',
-            facility: 'Lane Cove Aquatic Leisure Centre',
-            address: '2 Little St, Lane Cove NSW 2066',
-            website: 'www.lanecoveaquatic.com.au'
-          },  
-          'moss-vale-war-memorial-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173106/moss-vale-war-memorial-aquatic-centre.svg',
-            facility: 'Moss Vale War Memorial Aquatic Centre',
-            address: '8 Kirkham St, Moss Vale NSW 2577',
-            website: 'www.mossvaleaquatic.com.au'
-          },  
-          'lambton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            facility: 'Lambton Swimming Pool',
-            address: '102 Durham Rd, Lambton NSW 2299',
-            website: 'newcastlepools.com.au'
-          },  
-          'sawtell-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174552/coffs-harbour-pools.svg',
-            facility: 'Sawtell Swimming Pool',
-            address: 'Lyons Rd, Sawtell NSW 2452',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'stockton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            facility: 'Stockton Swimming Pool',
-            address: 'Pitt St, Stockton NSW 2295',
-            website: 'newcastlepools.com.au'
-          },  
-          'beresfield-swimming-pool-cafe-only': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            facility: 'Beresfield Swimming Pool (Cafe Only)',
-            address: '230 Anderson Dr, Beresfield NSW 2322',
-            website: ''
-          },  
-          'mayfield-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            facility: 'Mayfield Swimming Pool',
-            address: 'Ingall St, Mayfield NSW 2304',
-            website: 'pmhpools.com.au'
-          },  
-          'wallsend-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            facility: 'Wallsend Swimming Pool',
-            address: '2-6 Frances St, Wallsend NSW 2287',
-            website: 'newcastlepools.com.au'
-          },  
-          'aquadome': {
-            logo: 'https://files.outfit.io/media_library_items/174550/aquadome.svg',
-            facility: 'Aquadome',
-            address: '1 Crockerton Road, Elizabeth SA 5112',
-            website: ''
-          },  
-          'kendall-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            facility: 'Kendall Swimming Pool',
-            address: '',
-            website: ''
-          },  
-          'wollondilly-leisure-centre-picton-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174549/wollondilly-leisure-centre.svg',
-            facility: 'Wollondilly Leisure Centre (Picton Leisure Centre)',
-            address: '434 Argyle St, Picton NSW 2571',
-            website: 'www.wclc.com.au'
-          },  
-          'laurieton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            facility: 'Laurieton Swimming Pool',
-            address: '',
-            website: 'pmhpools.com.au'
-          },  
-          'mount-larcom-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
-            facility: 'Mount Larcom Swimming Pool',
-            address: 'The Narrows Road, Mount Larcom, 4695',
-            website: 'Gladstoneaquatic.com.au'
-          },  
-          'mount-morgan-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            facility: 'Mount Morgan Swimming Pool',
-            address: '36 Thompson Avenue, Mount Morgan, 4714 QLD',
-            website: 'www.rockhamptonaquatic.com.au'
-          },  
-          '2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            facility: '2nd World War Memorial Swimming Pool (South Rocky Swimming Pool)',
-            address: '2 Graeme Acton Way, Rockhampton City QLD 4700',
-            website: 'www.rockhamptonaquatic.com.au'
-          },  
-          'malvern-tennis-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
-            facility: 'Malvern Tennis Centre',
-            address: '43A Union Street, Armadale VIC 3143',
-            website: ''
-          },  
-          'orrong-park-tennis-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
-            facility: 'Orrong Park Tennis Centre',
-            address: '603 Orrong Rd, Armadale, Victoria 3143, Australia',
-            website: ''
-          }
-        }
-
-        containers.forEach(container => {
-          const logo = container.querySelector('.js-location-controller-logo');
-          const facility = container.querySelector('.js-location-controller-facility-name');
-          const address = container.querySelector('.js-location-controller-address');
-          const website = document.querySelector('.js-location-controller-website');
-
-          logo.src = locationsObj[location]['logo'];
-          facility.innerText = locationsObj[location]['facility'];
-          address.innerText = locationsObj[location]['address'];
-          website.innerText = locationsObj[location]['website'];
-        });
-      }
-
-      locationController();
-
+      
+      {{{account.snippets.locationController}}}  
 
     </script>
 
