@@ -443,41 +443,7 @@
       TextFit.fit({
         selector: '.textFit'
       });
-      
-      /*
-      function locationController(...locationProperties) {
-          // Geting the value from the Brand Toggle choice input
-          const location = '{{BF_toggle-brand}}' || 'belmont-oasis-leisure-centre';
-          // Selecting all the possible location container elements
-          const containers = document.querySelectorAll('.js-location-controller-container');
-          // Grabbing the master object with all the facility properties from snippet
-          const locationsObj = {{{account.snippets.brandToggleObject}}};      
-
-          containers.forEach(container => {
-              // Looping through all the arguments, which can be: logo, website, phone, name
-              for ( const locationProperty of locationProperties ) {
-                  const locationPropertyContainer = container.querySelector(`.js-location-controller-${locationProperty}`);
-                  if ( locationPropertyContainer === null ) {
-                      console.info(`%cYou are missing the container for ${locationProperty}. 
-                  Please add HTML element with js-location-controller-${locationProperty} class. `, 
-                      'background: #006699; color: #fff;'
-                      );
-
-                      continue;
-                  }
-                  if ( locationProperty === 'logo' ) {
-                      // Exception for the logo, cause in this case we are setting the img src attribute
-                      // In all other instances we will be setting the innerText property of an element
-                      container.querySelector('.js-location-controller-logo').src = locationsObj[location][locationProperty];
-                  } else {
-                      container.querySelector(`.js-location-controller-${locationProperty}`).innerText = locationsObj[location][locationProperty];
-                  }
-              }
-          });
-      }
-
-      locationController('logo', 'phone', 'website');      
-      */
+    
       {{{account.snippets.locationController}}}
 
     </script>
