@@ -188,11 +188,11 @@
 
 
       /*Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)*/
-      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre { 
+      .toggleBrandChoice--angelo-anestis-aquatic-centre { 
         --dynamic-background-color: var(--angelo-anestis-primary);
         --dynamic-background-overlay: var(--angelo-anestis-primary);
       }
-      .toggleBrandChoice--angelo-anestis-aquatic-centre-bexley-aquatic-centre .tinymce_style--dark { --dynamic-dark-text: var(--angelo-anestis-secondary-1); }
+      .toggleBrandChoice--angelo-anestis-aquatic-centre .tinymce_style--dark { --dynamic-dark-text: var(--angelo-anestis-secondary-1); }
       /* Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)*/
 
 
@@ -251,11 +251,11 @@
 
 
       /*Jubliee*/
-      .toggleBrandChoice--jubliee { 
+      .toggleBrandChoice--club-jubliee { 
         --dynamic-background-color: var(--bluefit-primary);
         --dynamic-background-overlay: var(--bluefit-primary);
       }
-      .toggleBrandChoice--jubliee .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-secondary-1); }
+      .toggleBrandChoice--club-jubliee .tinymce_style--dark { --dynamic-dark-text: var(--bluefit-secondary-1); }
       /*Jubliee*/
 
 
@@ -440,11 +440,11 @@
 
 
       /*Wollondilly Leisure Centre (Picton Leisure Centre)*/
-      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre { 
+      .toggleBrandChoice--wollondilly-leisure-centre { 
         --dynamic-background-color: var(--wollondilly-leisure-centre-primary);
         --dynamic-background-overlay: var(--wollondilly-leisure-centre-primary);
       }
-      .toggleBrandChoice--wollondilly-leisure-centre-picton-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--wollondilly-leisure-centre-secondary-1); }
+      .toggleBrandChoice--wollondilly-leisure-centre .tinymce_style--dark { --dynamic-dark-text: var(--wollondilly-leisure-centre-secondary-1); }
       /*Wollondilly Leisure Centre (Picton Leisure Centre)*/
 
 
@@ -500,6 +500,44 @@
       }
       .toggleBrandChoice--orrong-park-tennis-centre .tinymce_style--dark { --dynamic-dark-text: var(--stonnington-tennis-centres-secondary-1); }
       /*Orrong Park Tennis Centre*/
+      
+          /* Leisure Employment Australia */
+      .toggleBrandChoice--lea { 
+        --dynamic-background-color: var(--leisure-employment-australia-primary); 
+        --dynamic-background-overlay: var(--leisure-employment-australia-primary);
+      }  
+
+      .toggleBrandChoice--lea .tinymce_style--dark { --dynamic-dark-text: var(--leisure-employment-australia-primary); }
+          /* Leisure Employment Australia */    
+      
+      
+      
+      /*Southern Education*/
+      .toggleBrandChoice--southern-education { 
+        --dynamic-background-color: var(--southern-education-primary); 
+        --dynamic-background-overlay: var(--southern-education-primary);
+      }  
+
+      .toggleBrandChoice--southern-education .tinymce_style--dark { --dynamic-dark-text: var(--southern-education-primary); }      
+      /*Southern Education*/      
+      
+      /* Stonnington Tennis Centres */    
+      .toggleBrandChoice--stonnington-tennis-centres { 
+        --dynamic-background-color: var(--stonnington-tennis-centres-primary); 
+        --dynamic-background-overlay: var(--stonnington-tennis-centres-primary);
+      }  
+
+      .toggleBrandChoice--stonnington-tennis-centres .tinymce_style--dark { --dynamic-dark-text: var(--stonnington-tennis-centres-primary); }           
+      /* Stonnington Tennis Centres */      
+      
+      /* Mosman Swim Centre */    
+      .toggleBrandChoice--mosman-swim-centre { 
+        --dynamic-background-color: var(--mosman-swim-centre-primary); 
+        --dynamic-background-overlay: var(--mosman-swim-centre-primary);
+      }  
+
+      .toggleBrandChoice--mosman-swim-centre .tinymce_style--dark { --dynamic-dark-text: var(--mosman-swim-centre-primary); }                       
+      /* Mosman Swim Centre */      
 
 
       html {
@@ -560,7 +598,7 @@
         justify-content: center;
         flex: 1 0 0%;
         padding: calc(3mm + 45pt) 37pt 45pt 37pt;
-       /* padding: 45pt 37pt 45pt 37pt;*/
+        /* padding: 45pt 37pt 45pt 37pt;*/
       }
 
       .headingAlignment--top .body { justify-content: flex-start; }
@@ -637,12 +675,20 @@
         text-align: right;
         line-height: 1.2em;
       }
+      
+      .url { text-transform: lowercase; }
 
 
       /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
     </style>
   </head>
-  <body style="background: white" data-crop="{{show-crop}}" data-reduce-export-font-size-by-percent="0.5" data-reduce-firefox-font-size-by-percent="0" data-prevent-export-overflow="false"
+  <body style="background: white" 
+        data-crop="{{show-crop}}" 
+        data-reduce-export-font-size-by-percent="0.5" 
+        data-reduce-firefox-font-size-by-percent="0" 
+        data-prevent-export-overflow="false"
+        data-toggle-brand="{{BF_toggle-brand}}"
+        data-locations-object="{{account.snippets.brandToggleObject}}"
         class="toggleBrandChoice--{{{BF_toggle-brand}}}{{^BF_toggle-brand}}{{/BF_toggle-brand}}
                headingAlignment--{{{BF_heading-alignment--pp}}}{{^BF_heading-alignment--pp}}centre{{/BF_heading-alignment--pp}}
                backgroundOpacity--{{{BF_background-overlay-opacity--pp}}}
@@ -662,12 +708,12 @@
             <div class="backgroundOverlay"></div><!--overlay-->
             <div class="heading" data-max-height="dynamic">{{{BF_heading--pp}}}</div><!--heading-->
           </div><!--body-->
-          <div class="footer js-location-controller-container">
-            <img class="logo js-location-controller-logo" src="https://files.outfit.io/media_library_items/174922/bay-fit-leisure-centre.svg">
+          <div class="footer">
+            <img class="logo" data-location-property="logo" src="#">
             <div class="info">
               {{^BF_custom-contact-details--pp}}
-              <div class="phone js-location-controller-phone">Ph. 9392 2222</div><!--phone-->
-              <div class="url js-location-controller-website">www.bayfit.com.au</div><!--url-->
+              <div class="phone" data-location-property="phone">Ph. 9392 2222</div><!--phone-->
+              <div class="url" data-location-property="website">www.bayfit.com.au</div><!--url-->
               {{/BF_custom-contact-details--pp}}
               {{#BF_custom-contact-details--pp}}
               <div class="info__text" data-max-line="2"> {{{BF_custom-contact-details--pp}}}</div>
@@ -757,205 +803,42 @@
       TextFit.fit({
         selector: '.textFit'
       });
+      
+      /*
+      function locationController(...locationProperties) {
+          // Geting the value from the Brand Toggle choice input
+          const location = '{{BF_toggle-brand}}' || 'belmont-oasis-leisure-centre';
+          // Selecting all the possible location container elements
+          const containers = document.querySelectorAll('.js-location-controller-container');
+          // Grabbing the master object with all the facility properties from snippet
+          const locationsObj = {{{account.snippets.brandToggleObject}}};      
 
-      function locationController() {
-        const location = '{{BF_toggle-brand}}' || 'belmont-oasis-leisure-centre';
-        const containers = document.querySelectorAll('.js-location-controller-container');
-        const locationsObj = {
-          'belmont-oasis-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/175034/Belmont%2520Oasis_logo_hz_colour.png',
-            phone: '(08) 9277 1622',
-            website: ''
-          },
-          'angelo-anestis-aquatic-centre-bexley-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174538/angelo-anestis-aquatic-centre.svg',
-            phone: '(02) 9150 5288',
-            website: 'www.bexleyaquatic.com.au'
-          },          
-          'site-support-office': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            phone: '(03) 8595 5050',
-            website: ''
-          },
-          'bayfit-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174922/bay-fit-leisure-centre.svg',
-            phone: '(03) 9392 2222',
-            website: 'www.bayfit.com.au'
-          },
-          'greenwich-baths': {
-            logo: 'https://files.outfit.io/media_library_items/173121/greenwich-baths-sydney.svg',
-            phone: '(02) 9438 5922',
-            website: 'www.greenwichbaths.com.au'
-          },
-          'yeppoon-lagoon': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            phone: '0499 337 657',
-            website: ''
-          },
-          'gracemere-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            phone: '(07) 4933 2662',
-            website: 'www.rockhamptonaquatic.com.au'
-          },
-          'red-poppy-coffee': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            phone: '',
-            website: ''
-          },
-          'jubliee': {
-            logo: 'https://files.outfit.io/media_library_items/174558/bluey%2527s-swim-school.svg',
-            phone: '',
-            website: ''
-          },
-          'hurstville-aquatic-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174537/hurstville-aquatic-leisure-centre.svg',
-            phone: '(02) 9585 9600',
-            website: 'www.hurstvilleaquatic.com.au'
-          },  
-          'peakhurst-west-public-school': {
-            logo: 'https://files.outfit.io/media_library_items/173111/blue-fit-group.svg',
-            phone: '',
-            website: ''
-          },  
-          'port-macquarie-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            phone: '(02) 6583 1635',
-            website: 'phmpools.com.au'
-          },  
-          'wauchope-memorial-olympic-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            phone: '(02) 6585 2001',
-            website: 'phmpools.com.au'
-          },  
-          'glen-waverley-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/173095/glen-waverley-golf-course.svg',
-            phone: '(03) 9560 7806',
-            website: 'www.glenwaverleygolf.com.au'
-          },  
-          'oakleigh-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/174547/oakleigh-golf-course.svg',
-            phone: '(03) 9568 3307',
-            website: 'http://www.oakleighgolf.com.au/'
-          },  
-          'coffs-harbour-war-memorial-olympic-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
-            phone: '(02) 6652 1779',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'woolgoolga-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173101/coffs-harbour-pools.svg',
-            phone: '(02) 6654 8291',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'gladstone-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
-            phone: '(07) 4972 6822',
-            website: 'Gladstoneaquatic.com.au'
-          },  
-          'hurstville-golf-course': {
-            logo: 'https://files.outfit.io/media_library_items/173093/hurstville-golf-course.svg',
-            phone: '(02) 9534 5024',
-            website: 'www.hurstvillegolf.com.au'
-          },  
-          'lane-cove-aquatic-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174548/lane-cove-aquatic-leisure-centre.svg',
-            phone: '(02) 9418 8888',
-            website: 'www.lanecoveaquatic.com.au'
-          },  
-          'moss-vale-war-memorial-aquatic-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173106/moss-vale-war-memorial-aquatic-centre.svg',
-            phone: '(02) 4868 1967',
-            website: 'www.mossvaleaquatic.com.au'
-          },  
-          'lambton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            phone: '(02) 4952 5522',
-            website: 'newcastlepools.com.au'
-          },  
-          'sawtell-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174552/coffs-harbour-pools.svg',
-            phone: '(02) 6658 7497',
-            website: 'Coffsharbourpools.com.au'
-          },  
-          'stockton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            phone: '(02) 4928 1589',
-            website: 'newcastlepools.com.au'
-          },  
-          'beresfield-swimming-pool-cafe-only': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            phone: '(02) 4978 4090',
-            website: ''
-          },  
-          'mayfield-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            phone: '(02) 9585 9600',
-            website: 'pmhpools.com.au'
-          },  
-          'wallsend-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173107/newcastle-pools.svg',
-            phone: '(02) 4955 8899',
-            website: 'newcastlepools.com.au'
-          },  
-          'aquadome': {
-            logo: 'https://files.outfit.io/media_library_items/174550/aquadome.svg',
-            phone: '(08) 8287 8800',
-            website: ''
-          },  
-          'kendall-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            phone: '',
-            website: ''
-          },  
-          'wollondilly-leisure-centre-picton-leisure-centre': {
-            logo: 'https://files.outfit.io/media_library_items/174549/wollondilly-leisure-centre.svg',
-            phone: '(02) 4677 1251',
-            website: 'www.wclc.com.au'
-          },  
-          'laurieton-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/174546/port-macquarie-hastings-pools.svg',
-            phone: '',
-            website: 'pmhpools.com.au'
-          },  
-          'mount-larcom-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173100/gladstone-aquatic.svg',
-            phone: '(07) 4975 1185',
-            website: 'Gladstoneaquatic.com.au'
-          },  
-          'mount-morgan-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            phone: '(07) 4938 1500',
-            website: 'www.rockhamptonaquatic.com.au'
-          },  
-          '2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool': {
-            logo: 'https://files.outfit.io/media_library_items/173103/rockhampton-aquatic.svg',
-            phone: '(07) 4922 1981',
-            website: 'www.rockhamptonaquatic.com.au'
-          },  
-          'malvern-tennis-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
-            phone: '',
-            website: ''
-          },  
-          'orrong-park-tennis-centre': {
-            logo: 'https://files.outfit.io/media_library_items/173118/stonnington-tennis-centre.svg',
-            phone: '',
-            website: ''
-          }
-        }
+          containers.forEach(container => {
+              // Looping through all the arguments, which can be: logo, website, phone, name
+              for ( const locationProperty of locationProperties ) {
+                  const locationPropertyContainer = container.querySelector(`.js-location-controller-${locationProperty}`);
+                  if ( locationPropertyContainer === null ) {
+                      console.info(`%cYou are missing the container for ${locationProperty}. 
+                  Please add HTML element with js-location-controller-${locationProperty} class. `, 
+                      'background: #006699; color: #fff;'
+                      );
 
-        containers.forEach(container => {
-          const logo = container.querySelector('.js-location-controller-logo');
-          const phone = container.querySelector('.js-location-controller-phone');
-          const website = container.querySelector('.js-location-controller-website');
-
-          logo.src = locationsObj[location]['logo'];
-          phone.innerText = locationsObj[location]['phone'];
-          website.innerText = locationsObj[location]['website'];
-        });
+                      continue;
+                  }
+                  if ( locationProperty === 'logo' ) {
+                      // Exception for the logo, cause in this case we are setting the img src attribute
+                      // In all other instances we will be setting the innerText property of an element
+                      container.querySelector('.js-location-controller-logo').src = locationsObj[location][locationProperty];
+                  } else {
+                      container.querySelector(`.js-location-controller-${locationProperty}`).innerText = locationsObj[location][locationProperty];
+                  }
+              }
+          });
       }
 
-      locationController();
+      locationController('logo', 'phone', 'website');      
+      */
+      {{{account.snippets.locationController}}}
 
     </script>
 
