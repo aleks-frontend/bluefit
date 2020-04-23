@@ -611,28 +611,6 @@
         selector: '.textFit'
       });
       
-     /* function locationController() {
-          // Geting the value from the Brand Toggle choice input
-          const location = '{{BF_toggle-brand}}' || 'belmont-oasis-leisure-centre';
-          // Selecting all the location property container elements (HTML elements, where the location data needs to be injected)
-          const locationPropertyContainers = document.querySelectorAll('[data-location-property]');
-          // Grabbing the master object with all the facility properties from snippet        
-          const locationsObj = {{{account.snippets.brandToggleObject}}};
-
-          for ( const locationPropertyContainer of locationPropertyContainers ) {
-            const locationProperty = locationPropertyContainer.dataset.locationProperty;
-            
-            if ([data-location-property] === 'logo' || 'logoBlack' ) {
-              // Exception for the logo, cause in this case we are setting the img src attribute
-              // In all other instances we will be setting the innerText property of an element
-              locationPropertyContainer.src = locationsObj[location]['logo'];
-            } else {
-              locationPropertyContainer.innerText = locationsObj[location][locationProperty];
-            }
-          }
-      }      
-
-      locationController(); */
       {{{account.snippets.locationController}}}
 
     </script>
