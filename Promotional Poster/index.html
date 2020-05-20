@@ -12,6 +12,7 @@
 
       /* Inputs Order
       {{show-crop}}
+      {{{BF_toggle-greyscale}}}
       {{{BF_toggle-brand}}}
       {{{BF_background-image--pp}}}
       {{BF_background-overlay-type--st}}
@@ -179,7 +180,6 @@
 
       {{{account.snippets.brandColorsLogic}}}
 
-
       html {
         font-family: 'Montserrat';
         font-size: 11pt;
@@ -224,11 +224,15 @@
         width: 100% !important;
         height: 100% !important;
       }
+      
+      .toggleGreyscale--yes .page {
+        filter: grayscale(1);
+      }
 
       .fit {
         display: flex;
         flex-direction: column;
-        background-color: var(--dynamic-background-color);
+        background-color: var(--dynamic-overlay-color);
       }
 
       .body {
@@ -251,20 +255,20 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--dynamic-background-overlay);
+        background-color: var(--dynamic-overlay-color);
         opacity: calc(1/100 * {{BF_background-overlay-opacity--pp}});
       }
 
       .backgroundOverlayTypeChoice--full .backgroundOverlay {
-        background: var(--dynamic-background-overlay);
+        background: var(--dynamic-overlay-color);
       }
 
       .backgroundOverlayTypeChoice--gradient.gradientDirectionChoice--top-to-bottom .backgroundOverlay {
-        background: linear-gradient( 180deg, var(--dynamic-background-overlay) 0%, transparent {{{BF_background-gradient-slider--st}}}%); 
+        background: linear-gradient( 180deg, var(--dynamic-overlay-color) 0%, transparent {{{BF_background-gradient-slider--st}}}%); 
       }
 
       .backgroundOverlayTypeChoice--gradient.gradientDirectionChoice--bottom-to-top .backgroundOverlay {
-        background: linear-gradient( 0deg, var(--dynamic-background-overlay) 0%, transparent {{{BF_background-gradient-slider--st}}}%); 
+        background: linear-gradient( 0deg, var(--dynamic-overlay-color) 0%, transparent {{{BF_background-gradient-slider--st}}}%); 
       }
 
       .backgroundOverlayTypeChoice--none .backgroundOverlay {
@@ -329,7 +333,8 @@
         data-prevent-export-overflow="false"
         data-toggle-brand="{{BF_toggle-brand}}"
         data-locations-object="{{account.snippets.brandToggleObject}}"
-        class="toggleBrandChoice--{{{BF_toggle-brand}}}{{^BF_toggle-brand}}{{/BF_toggle-brand}}
+        class="toggleGreyscale--{{{BF_toggle-greyscale}}}{{^BF_toggle-greyscale}}no{{/BF_toggle-greyscale}}
+               toggleBrandChoice--{{{BF_toggle-brand}}}{{^BF_toggle-brand}}{{/BF_toggle-brand}}
                headingAlignment--{{{BF_heading-alignment--pp}}}{{^BF_heading-alignment--pp}}centre{{/BF_heading-alignment--pp}}
                backgroundOpacity--{{{BF_background-overlay-opacity--pp}}}
                backgroundOverlayTypeChoice--{{BF_background-overlay-type--st}}{{^BF_background-overlay-type--st}}none{{/BF_background-overlay-type--st}}  
