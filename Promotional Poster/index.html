@@ -321,7 +321,28 @@
       }
       
       .url { text-transform: lowercase; }
+      
+      /* Ading decoration squares to top right and bottom left corners for the Aquadome brand */
+      .squareAquadome {
+        display: none;
+        position: absolute;
+        width: 2rem;
+        height: auto;            
+      }
+      
+      .squareAquadome--topRight {
+        top: 0.3rem;
+        right: 0.3rem;
+      }
 
+      .squareAquadome--bottomLeft {
+        bottom: 0.3rem;
+        left: 0.3rem;
+      }      
+
+      .toggleBrandChoice--aquadome .squareAquadome  { display: block; }
+
+      .squareAquadome path { fill: var(--aquadome-primary-1); }
 
       /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
     </style>
@@ -351,6 +372,21 @@
             <div class="backgroundImage"><div class="reposition-fix">{{{BF_background-image--pp}}}</div></div><!--backgroundImage-->
             {{/BF_background-image--pp}}
             <div class="backgroundOverlay"></div><!--overlay-->
+            <svg class="squareAquadome squareAquadome--bottomLeft" viewBox="0 0 128 266" xmlns="http://www.w3.org/2000/svg">
+              <path d="M77 103H51V129H77V103Z"/>
+              <path d="M77 0H51V27H77V0Z"/>
+              <path d="M128 241H102V266H128V241Z"/>
+              <path d="M26 139H0V165H26V139Z"/>
+              <path d="M128 139H102V165H128V139Z"/>
+            </svg><!--square--bottomLeft-->
+            <svg class="squareAquadome squareAquadome--topRight" viewBox="0 0 129 301" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27 275H0V301H27V275Z"/>
+              <path d="M27 141H0V167H27V141Z"/>
+              <path d="M27 38H1V65H27V38Z"/>
+              <path d="M129 38H103V65H129V38Z"/>
+              <path d="M129 141H103V167H129V141Z"/>
+              <path d="M27 0H1V26H27V0Z"/>
+            </svg><!--square--topRight-->               
             <div class="heading" data-max-height="dynamic">{{{BF_heading--pp}}}</div><!--heading-->
           </div><!--body-->
           <div class="footer">
