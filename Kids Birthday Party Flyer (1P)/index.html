@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-sign="OSR">
+<html data-sign="OSR/OSB">
   <head>
     <title>Template title</title>
     <meta charset="utf-8">
@@ -77,7 +77,7 @@
         --greenwich-baths-sydney-secondary-2: {{{account.colors.greenwich-baths-sydney-secondary-2}}};
 
         /* Hurstville Aquatic Leisure Centre */ 
-        --hurstville-aquatic-leisure-centre-primary: {{{account.colors.hurstville-aquatic-leisure-centre-primary}}}; 
+        --hurstville-aquatic-leisure-centre-primary: {{{account.colors.hurstville-aquatic-leisure-centre-primary}}};
         --hurstville-aquatic-leisure-centre-secondary-1: {{{account.colors.hurstville-aquatic-leisure-centre-secondary-1}}};
         --hurstville-aquatic-leisure-centre-secondary-2: {{{account.colors.hurstville-aquatic-leisure-centre-secondary-2}}};
 
@@ -173,6 +173,30 @@
         --southern-education-secondary-1: {{{account.colors.southern-education-secondary-1}}};
       }
 
+      .headingBackgroundColorFullWidth--light-blue,
+      .headingBackgroundColorOneThird--light-blue,
+      .headingBackgroundColorHalfWidth--light-blue {
+        --dynamic-header-color-full: var(--light-blue);
+      }
+
+      .headingBackgroundColorFullWidth--blue,
+      .headingBackgroundColorOneThird--blue,
+      .headingBackgroundColorHalfWidth--blue {
+        --dynamic-header-color-full: var(--blue);
+      }
+
+      .headingBackgroundColorFullWidth--dark-blue,
+      .headingBackgroundColorOneThird--dark-blue,
+      .headingBackgroundColorHalfWidth--dark-blue {
+        --dynamic-header-color-full: var(--dark-blue);
+      }
+
+      .headingBackgroundColorFullWidth--darkest-blue,
+      .headingBackgroundColorOneThird--darkest-blue,
+      .headingBackgroundColorHalfWidth--darkest-blue {
+        --dynamic-header-color-full: var(--darkest-blue);
+      }
+
       /* Inputs Order
 
       {{show-crop}}
@@ -180,20 +204,17 @@
       {{BF_toggle-brand}}
       {{BF_background-image--kbpf}}
       {{{BF_heading--kbpf}}}
-      {{{BF_subheading--kbpf}}}
-      {{BF_hero-image--kbpf}}
-      {{{BF_call-to-action--kbpf}}}
-      {{BF_cta-size--kbpf}}
-      {{#collection.BF_copy--kbpf}}{{/collection.BF_copy--kbpf}}
-      {{{BF_disclaimer--kbpf}}}
-      {{BF_owned-by--kbpf}}
+      {{BF_copy-new--kbpf}}
+      {{BF_call-to-action-2--kbpf}}
+      {{BF_book-online--kbpf}}
+      {{ height-slider }}
+ 
       */
 
       html {
         font-family: 'Montserrat';
         word-break: break-word;
       }
-
 
       {{{account.snippets.brandColorsLogic}}}
 
@@ -204,227 +225,268 @@
         --color-secondary: var(--belmont-secondary-1);
         --color-tertiary: var(--belmont-secondary-1);
       }
+
       /*Angelo Anestis Aquatic Centre (Bexley Aquatic Centre)*/
       .toggleBrandChoice--angelo-anestis-aquatic-centre { 
         --color-primary: var(--angelo-anestis-primary);
         --color-secondary: var(--angelo-anestis-secondary-1);
         --color-tertiary: var(--angelo-anestis-secondary-2);
       }
+
       /*Site Support Office*/
       .toggleBrandChoice--site-support-office { 
         --color-primary: var(--bluefit-primary);
         --color-secondary: var(--bluefit-secondary-1);
         --color-tertiary: var(--bluefit-secondary-2);
       }
+
       /*BlueFit*/
       .toggleBrandChoice--bluefit { 
         --color-primary: var(--bluefit-primary);
         --color-secondary: var(--bluefit-secondary-1);
         --color-tertiary: var(--bluefit-secondary-2);
       }
+
       /*BayFit Leisure Centre*/
       .toggleBrandChoice--bayfit-leisure-centre { 
         --color-primary: var(--bayfit-primary);
         --color-secondary: var(--bayfit-secondary-1);
         --color-tertiary: var(--bayfit-secondary-2);
       }
+
       /*Greenwich Baths*/
       .toggleBrandChoice--greenwich-baths { 
         --color-primary: var(--bluefit-primary);
         --color-secondary: var(--bluefit-secondary-1);
         --color-tertiary: var(--bluefit-secondary-2);
       }
+
       /*Gracemere Swimming Pool*/
       .toggleBrandChoice--gracemere-swimming-pool { 
         --color-primary: var(--rockhampton-aquatic-primary);
         --color-secondary: var(--rockhampton-aquatic-secondary-1);
         --color-tertiary: var(--rockhampton-aquatic-secondary-2);
       }
+
       /*Red Poppy Coffee*/
       .toggleBrandChoice--red-poppy-coffee { 
         --color-primary: var(--rockhampton-aquatic-primary);
         --color-secondary: var(--rockhampton-aquatic-secondary-1);
         --color-tertiary: var(--rockhampton-aquatic-secondary-2);
       }
+
       /*Jubliee*/
       .toggleBrandChoice--club-jubliee { 
         --color-primary: var(--bluefit-primary);
         --color-secondary: var(--bluefit-secondary-1);
         --color-tertiary: var(--bluefit-secondary-2);
       }
+
       /*Hurstville Aquatic Leisure Centre*/
       .toggleBrandChoice--hurstville-aquatic-leisure-centre { 
         --color-primary: var(--hurstville-aquatic-leisure-centre-primary);
         --color-secondary: var(--hurstville-aquatic-leisure-centre-secondary-1);
         --color-tertiary: var(--hurstville-aquatic-leisure-centre-secondary-2);
       }
+
       /*Peakhurst West Public School*/
       .toggleBrandChoice--peakhurst-west-public-school { 
         --color-primary: var(--bluefit-primary);
         --color-secondary: var(--bluefit-secondary-1);
         --color-tertiary: var(--bluefit-secondary-2);
       }
+
       /*Port Macquarie Swimming Pool */
       .toggleBrandChoice--port-macquarie-swimming-pool { 
         --color-primary: var(--port-macquarie-hastings-pools-primary);
         --color-secondary: var(--port-macquarie-hastings-pools-secondary-1);
         --color-tertiary: var(--port-macquarie-hastings-pools-secondary-2);
       }
+
       /*Wauchope Memorial Olympic Pool*/
       .toggleBrandChoice--wauchope-memorial-olympic-pool { 
         --color-primary: var(--port-macquarie-hastings-pools-primary);
         --color-secondary: var(--port-macquarie-hastings-pools-secondary-1);
         --color-tertiary: var(--port-macquarie-hastings-pools-secondary-2);
       }
+
       /*Glen Waverley Golf Course*/
       .toggleBrandChoice--glen-waverley-golf-course { 
         --color-primary: var(--glen-waverley-golf-course-primary);
         --color-secondary: var(--glen-waverley-golf-course-secondary-1);
       }
+
       /*Oakleigh Golf Course*/
       .toggleBrandChoice--oakleigh-golf-course { 
         --color-primary: var(--oakleigh-golf-course-primary);
         --color-secondary: var(--oakleigh-golf-course-secondary-1);
         --color-tertiary: var(--oakleigh-golf-course-secondary-2);
       }
+
       /*Coffs Harbour War Memorial Olympic Pool*/
       .toggleBrandChoice--coffs-harbour-war-memorial-olympic-pool { 
         --color-primary: var(--coffs-harbour-pools-primary);
         --color-secondary: var(--coffs-harbour-pools-secondary-1);
         --color-tertiary: var(--coffs-harbour-pools-secondary-2);
       }
+
       /*Woolgoolga Swimming Pool*/
       .toggleBrandChoice--woolgoolga-swimming-pool { 
         --color-primary: var(--coffs-harbour-pools-primary);
         --color-secondary: var(--coffs-harbour-pools-secondary-1);
         --color-tertiary: var(--coffs-harbour-pools-secondary-2);
       }
+
       /*Gladstone Aquatic Centre*/
       .toggleBrandChoice--gladstone-aquatic-centre { 
         --color-primary: var(--gladstone-aquatic-primary);
         --color-secondary: var(--gladstone-aquatic-secondary-1);
         --color-tertiary: var(--gladstone-aquatic-secondary-2);
       }
+
       /*Hurstville Golf Course*/
       .toggleBrandChoice--hurstville-golf-course { 
         --color-primary: var(--hurstville-golf-course-primary);
         --color-secondary: var(--hurstville-golf-course-secondary-1);
         --color-tertiary: var(--hurstville-golf-course-secondary-2);
       }
+
       /*Lane Cove Aquatic Leisure Centre*/
       .toggleBrandChoice--lane-cove-aquatic-leisure-centre { 
         --color-primary: var(--lane-cove-aquatic-centre-primary);
         --color-secondary: var(--lane-cove-aquatic-centre-secondary-1);
         --color-tertiary: var(--lane-cove-aquatic-centre-secondary-2);
       }
+
+
       /*Moss Vale War Memorial Aquatic Centre*/
       .toggleBrandChoice--moss-vale-war-memorial-aquatic-centre { 
         --color-primary: var(--moss-vale-aquatic-centre-primary);
         --color-secondary: var(--moss-vale-aquatic-centre-secondary-1);
         --color-tertiary: var(--moss-vale-aquatic-centre-secondary-2);
       }
+
+
       /*Lambton Swimming Pool*/
       .toggleBrandChoice--lambton-swimming-pool { 
         --color-primary: var(--newcastle-pools-primary);
         --color-secondary: var(--newcastle-pools-secondary-1);
         --color-tertiary: var(--newcastle-pools-secondary-2);
       }
+
       /*Sawtell Swimming Pool*/
       .toggleBrandChoice--sawtell-swimming-pool { 
         --color-primary: var(--coffs-harbour-pools-primary);
         --color-secondary: var(--coffs-harbour-pools-secondary-1);
         --color-tertiary: var(--coffs-harbour-pools-secondary-2);
       }
+
       /*Stockton Swimming Pool*/
       .toggleBrandChoice--stockton-swimming-pool { 
         --color-primary: var(--newcastle-pools-primary);
         --color-secondary: var(--newcastle-pools-secondary-1);
         --color-tertiary: var(--newcastle-pools-secondary-2);
       }
+
       /*Beresfield Swimming Pool (Cafe Only)*/
       .toggleBrandChoice--beresfield-swimming-pool-cafe-only { 
         --color-primary: var(--newcastle-pools-primary);
         --color-secondary: var(--newcastle-pools-secondary-1);
         --color-tertiary: var(--newcastle-pools-secondary-2);
       }
+
       /*Mayfield Swimming Pool*/
       .toggleBrandChoice--mayfield-swimming-pool { 
         --color-primary: var(--newcastle-pools-primary);
         --color-secondary: var(--newcastle-pools-secondary-1);
         --color-tertiary: var(--newcastle-pools-secondary-2);
       }
+
       /*Wallsend Swimming Pool*/
       .toggleBrandChoice--wallsend-swimming-pool { 
         --color-primary: var(--newcastle-pools-primary);
         --color-secondary: var(--newcastle-pools-secondary-1);
         --color-tertiary: var(--newcastle-pools-secondary-2);
       }
+
       /*Aquadome*/
       .toggleBrandChoice--aquadome { 
         --color-primary: var(--aquadome-primary-1);
         --color-secondary: var(--aquadome-secondary-1);
         --color-tertiary: var(--aquadome-secondary-1);
       }
+
       /*Kendall Swimming Pool*/
       .toggleBrandChoice--kendall-swimming-pool { 
         --color-primary: var(--port-macquarie-hastings-pools-primary);
         --color-secondary: var(--port-macquarie-hastings-pools-secondary-1);
         --color-tertiary: var(--port-macquarie-hastings-pools-secondary-2);
       } 
+
       /*Wollondilly Leisure Centre (Picton Leisure Centre)*/
       .toggleBrandChoice--wollondilly-leisure-centre { 
         --color-primary: var(--wollondilly-leisure-centre-primary);
         --color-secondary: var(--wollondilly-leisure-centre-secondary-1);
         --color-tertiary: var(--wollondilly-leisure-centre-secondary-2);
       }
+
       /*Laurieton Swimming Pool*/
       .toggleBrandChoice--laurieton-swimming-pool { 
         --color-primary: var(--port-macquarie-hastings-pools-primary);
         --color-secondary: var(--port-macquarie-hastings-pools-secondary-1);
         --color-tertiary: var(--port-macquarie-hastings-pools-secondary-2);
       }
+
       /*Mount Larcom Swimming Pool*/
       .toggleBrandChoice--mount-larcom-swimming-pool { 
         --color-primary: var(--gladstone-aquatic-primary);
         --color-secondary: var(--gladstone-aquatic-secondary-1);
         --color-tertiary: var(--gladstone-aquatic-secondary-2);
       }
+
       /*Mount Morgan Swimming Pool*/
       .toggleBrandChoice--mount-morgan-swimming-pool { 
         --color-primary: var(--rockhampton-aquatic-primary);
         --color-secondary: var(--rockhampton-aquatic-secondary-1);
         --color-tertiary: var(--rockhampton-aquatic-secondary-2);
       }
+
       /*2nd World War Memorial Swimming Pool (South Rocky Swimming Pool)*/
       .toggleBrandChoice--2nd-world-war-memorial-swimming-pool-south-rocky-swimming-pool { 
         --color-primary: var(--rockhampton-aquatic-primary);
         --color-secondary: var(--rockhampton-aquatic-secondary-1);
         --color-tertiary: var(--rockhampton-aquatic-secondary-2);
       }
+
       /*Malvern Tennis Centre*/
       .toggleBrandChoice--malvern-tennis-centre { 
         --color-primary: var(--stonnington-tennis-centres-primary);
         --color-secondary: var(--stonnington-tennis-centres-secondary-1);
         --color-tertiary: var(--stonnington-tennis-centres-primary);
       }
+
       /*Orrong Park Tennis Centre*/
       .toggleBrandChoice--orrong-park-tennis-centre { 
         --color-primary: var(--stonnington-tennis-centres-primary);
         --color-secondary: var(--stonnington-tennis-centres-secondary-1);
         --color-tertiary: var(--stonnington-tennis-centres-primary);
       }
+
       /* Leisure Employment Australia */
       .toggleBrandChoice--lea { 
         --color-primary: var(--leisure-employment-australia-primary);
         --color-secondary: var(--leisure-employment-australia-secondary-1);
         --color-tertiary: var(--leisure-employment-australia-secondary-2);
       }        
+
+
       /*Southern Education*/
       .toggleBrandChoice--southern-education { 
         --color-primary: var(--southern-education-primary);
         --color-secondary: var(--southern-education-secondary-1);
         --color-tertiary: var(--southern-education-secondary-1);
       }             
+
       /* Stonnington Tennis Centres */    
       .toggleBrandChoice--stonnington-tennis-centres { 
         --color-primary: var(--stonnington-tennis-centres-primary);
@@ -436,7 +498,7 @@
         --color-primary: var(--mosman-swim-centre-primary);
         --color-secondary: var(--mosman-swim-centre-secondary-1);
         --color-tertiary: var(--mosman-swim-centre-secondary-2);
-      }               
+      }                
 
       .backgroundImage div {
         width: auto !important;
@@ -483,38 +545,18 @@
         flex: 1;
       }
 
-      .body--backPage {
-        padding: 0.3rem 0.95rem 0.48rem 0.95rem;
-        flex: unset;
-      }
-
       .body__top {
         position: relative;
         flex: 1;
       }
 
-      .body__inner {
-        max-height: 530px;
-      }
-
-      .ctaSize--large .body__inner {
-        max-height: 440px;
-      }
-
-      .backgroundImage,
-      .hero {
+      .backgroundImage {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         overflow: hidden;
-      }
-
-      .no-hero-image .hero {
-        background-image: url('https://files.outfit.io/media_library_items/175146/BlueFit-KidsBirthdayPartyFlyer-image2.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
       }
 
       .heading {
@@ -624,33 +666,107 @@
 
       .body__bottom {
         position: relative;
-        padding: 0.58rem 0.72rem;
+        max-height: 5rem;
+        padding: 0.48rem 0.72rem 0.28rem 0.95rem;
         background-color: var(--dynamic-background-color);
       }
 
-      .subheading {
-        text-align: center;
-        font-size: 0.60rem;
-        line-height: 1.2em;
-        font-weight: bold;
+      .copy__container { margin-right: 0.4rem; }
+
+      .copy {
         color: var(--white);
+      }
+
+      .copy h3 {
+        font-size: 0.4rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: -0.09em;
+        color: var(--color-tertiary);
+      }
+
+      .copy p { font-size: 0.23rem; }
+
+      .copy ul { margin-bottom: 0.2rem; }
+      .copy ul:last-child { margin-bottom: 0; }
+
+      .copy li {
+        position: relative;
+        margin-left: 0.2rem;
+        font-size: 0.295rem;
+        line-height: 1.45em;
+      }
+
+      .copy li:before {
+        content: '.';
+        position: absolute;
+        right: 100.9%;
+        bottom: 0.2em;
+        font-size: 0.5rem;
+        line-height: 1em;
+      }
+
+      .cta {
+        position: relative;
+        float: right;
+        display: flex;
+        align-items: center;
+        margin-top: -1rem;  
+        height: 3.7rem;
+        width: 3.7rem;
+        padding: 0.4rem;
+        text-align: center;
+        border-radius: 50%;
+        background: var(--white);
+        color: var(--dynamic-background-color);
+        z-index: 1;
+      }
+
+      .cta__text h3 {
+        margin-bottom: 0.15rem;
+        font-size: 2.2rem;
+        font-weight: 700;
+        line-height: 0.9em;
+      }
+
+      .cta__text h3:last-child { margin-bottom: 0; }
+
+      .cta__text p {
+        font-size: 0.43rem;
+        line-height: 1em;
+      }
+
+      .bookOnline { 
+        margin-top: 0.49rem;
+        font-size: 0.465rem; 
+        clear: right;
+      }
+
+      .bookOnline h3 {
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 700;
+        color: var(--color-tertiary);
+        text-transform: uppercase;
+      }
+
+      .bookOnline h4 {
+        display: inline-block;
+        font-size: 1em;
+      }
+
+      .bookOnline a { 
+        font-size: 1em;
+        color: var(--white);
+        text-transform: uppercase;
       }
 
       .footer {
         position: relative;
         display: flex;
         justify-content: space-between;
-      }
-
-      .footer--frontPage {
         align-items: center;
-        padding: 0.68rem 0.72rem;
-      }
-
-      .footer--backPage {
-        flex-direction: column;
-        height: 2.45rem;
-        padding: 0rem 0.95rem 0.6rem 0.95rem;
+        padding: 0.58rem 0.92rem;
       }
 
       .logo {
@@ -664,7 +780,7 @@
       .info {
         margin-left: 0.98rem;
         text-align: right;
-        width: 6.80rem;
+        width: 210pt;
         font-size: 0;
         color: var(--color-primary)
       }
@@ -680,458 +796,18 @@
         font-weight: 500;
       }
 
-      .hero__container {
-        position: relative;
-        flex: 1;
-      }
-
-      .cta {
-        position: absolute;
-        top: 0.49rem;
-        left: 1.14rem;
-        display: flex;
-        align-items: center;
-        width: 2.92rem;
-        height: 2.92rem;
-      }
-
-      .ctaSize--large .cta {
-        top: 0.97rem;
-        left: 1rem;
-        width: 4.4rem;
-        height: 4.4rem;
-      }
-
-      .cta__image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .cta__text {
-        position: relative;
-        flex: 1;
-        padding: 0 0.35rem;
-        text-align: center;
-        font-size: 0.47rem;
-        max-height: 110px;
-      }
-
-      .ctaSize--large .cta__text {
-        max-height: 140px;
-        padding: 0.1rem 0.4rem;
-      }
-
-      sup, sub {
-        vertical-align: baseline;
+      sub, sup {
         position: relative;
         line-height: 1em;
-        font-size: 0.4em;
-      }
-      
-      .ctaSize--large sup,
-      .ctaSize--large sub {
-        font-size: 0.35em;
+        font-size: 0.3em;
       }
 
       sup {
-        top: -1.1em;
+        top: -1.6em;
       }
-      
-      .ctaSize--large sup { top: -1.25em; }
-
-      sub {
-        top: 0.2em;
-      }
-
-      .cta__text h3 {
-        font-size: 1.19rem;
-        font-size: 0.96rem;
-        line-height: 1em;
-        font-weight: 800;
-        color: var(--blue);
-      } 
-
-      .ctaSize--large .cta__text h3 {
-        font-size: 2.37rem;
-        line-height: 1em;
-      }
-
-      .cta__text p {
-        font-size: 0.23rem;
-        line-height: 1.2em;
-        font-weight: 600;
-      }
-
-      .ctaSize--large .cta__text p {
-        font-size: 0.4rem;
-      }
-
-      .table__container,
-      .copyRow {
-        margin: 0.21rem 0;
-      }
-
-      .table__container:first-child,
-      .copyRow:first-child {
-        margin-top: 0;
-      }
-
-      .table__container:last-child,
-      .copyRow:last-child {
-        margin-bottom: 0;
-      }
-
-      .table__heading {
-        padding: 0.19rem 0.70rem;
-        text-align: center;
-        color: var(--white);
-      }
-
-      .headingBackgroundColor--primary .table__heading { background-color: var(--color-primary); }
-      .headingBackgroundColor--secondary .table__heading { background-color: var(--color-secondary); }
-      .headingBackgroundColor--tertiary .table__heading { background-color: var(--color-tertiary); }
-
-      .copyRow .table__heading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 1.5rem;
-        padding: 0.2rem;
-      }
-
-      .table__heading h4 {
-        margin-bottom: 0.09rem;
-        text-transform: uppercase;
-        font-size: 0.37rem;
-        line-height: 1.1em;
-        font-weight: bold;
-      }
-
-      .copyRow .table__heading h4 {
-        font-size: 0.36rem;
-      }
-
-      .table__heading p {
-        font-size: 0.28rem;
-        line-height: 1em;
-        font-weight: normal;
-      }
-
-      .table__heading h4:last-child {
-        margin-bottom: 0;
-      }
-
-      .table {
-        position: relative;
-        display: flex;
-      }
-
-      .table__background {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
-
-      .tableBackground--primary .table__background { background-color: var(--color-primary); }
-      .tableBackground--secondary .table__background { background-color: var(--color-secondary); }
-      .tableBackground--tertiary .table__background { background-color: var(--color-tertiary); }
-
-      .table__background.no-copy-1.no-copy-2 {
-        background-color: unset;
-      }
-      
-      .table--row .table__background.no-copy {
-         background-color: unset;
-      }
-
-      .column {
-        flex: 1;
-      }
-
-      .headingBackgroundColor--primary .table { border: 0.02rem solid var(--color-primary); }
-      .headingBackgroundColor--secondary .table { border: 0.02rem solid var(--color-secondary); }
-      .headingBackgroundColor--tertiary .table { border: 0.02rem solid var(--color-tertiary); }
-
-      .table--fullWidth.no-copy,
-      .table--row.no-copy,
-      .table--twoColumnTable.no-copy-1.no-copy-2,
-      .table--threeColumnTable.no-copy-1.no-copy-2.no-copy-3,
-      .table--oneThird.no-copy-1.no-copy-2.no-copy-3,
-      .table--halfWidth.no-copy-1.no-copy-2 {
-        border: unset;
-      }
-
-      .table--fullWidth .column,
-      .table--row .column {
-        padding: 0.12rem 0.12rem 0.23rem 0.24rem;
-      }
-
-      .table--oneThird .column {
-        padding: 0.12rem 0.23rem 0.24rem;
-      }
-
-      .table--halfWidth .column {
-        padding: 0.12rem 0.23rem 0.24rem;
-      }
-
-      .headingBackgroundColor--primary .table--halfWidth .column:nth-child(2) { border-left: 0.02rem solid var(--color-primary); }
-      .headingBackgroundColor--secondary .table--halfWidth .column:nth-child(2) { border-left: 0.02rem solid var(--color-secondary); }
-      .headingBackgroundColor--tertiary .table--halfWidth .column:nth-child(2) { border-left: 0.02rem solid var(--color-tertiary); }
-
-      .table--halfWidth.no-copy-1.no-copy-2 .column:nth-child(2) {
-        border: unset;
-      }
-
-      .table--twoColumnTable .column {
-        flex: unset;
-        padding: 0.1rem 0.4rem 0.23rem 0.25rem;
-      }
-
-      .table--twoColumnTable .column:nth-child(2) {
-        flex: 1;
-      }
-
-      .table--twoColumnTable .column:nth-child(3) {
-        width: 5.24rem;
-        padding-left: 0;
-      }
-
-      .table--threeColumnTable .column {
-        flex: unset;
-        padding: 0.1rem 0.12rem 0.23rem 0.3rem;
-      }
-
-      .headingBackgroundColor--primary .table--threeColumnTable .column:nth-child(2),
-      .headingBackgroundColor--primary .table--threeColumnTable .column:nth-child(3) {
-        border-left: 0.02rem solid var(--color-primary);
-      }
-
-      .headingBackgroundColor--secondary .table--threeColumnTable .column:nth-child(2),
-      .headingBackgroundColor--secondary .table--threeColumnTable .column:nth-child(3) {
-        border-left: 0.02rem solid var(--color-secondary);
-      }
-
-      .headingBackgroundColor--tertiary .table--threeColumnTable .column:nth-child(2),
-      .headingBackgroundColor--tertiary .table--threeColumnTable .column:nth-child(3) {
-        border-left: 0.02rem solid var(--color-tertiary);
-      }
-
-      .table--threeColumnTable.no-copy-1.no-copy-2.no-copy-3 .column:nth-child(2),
-      .table--threeColumnTable.no-copy-1.no-copy-2.no-copy-3 .column:nth-child(3) {
-        border: unset;
-      }
-
-      .table--threeColumnTable .column:nth-child(1) {
-        width: 3.69rem;
-      }
-
-      .table--threeColumnTable .column:nth-child(2) {
-        width: 4.66rem;
-      }
-
-      .table--threeColumnTable .column:nth-child(3) {
-        width: 3.82rem;
-      }
-
-      .column--alt {
-        position: relative;
-        flex: unset;
-        width: 2.97rem;
-      }
-
-      .headingBackgroundColor--primary .column--alt { border-right: 0.02rem solid var(--color-primary); }
-      .headingBackgroundColor--secondary .column--alt { border-right: 0.02rem solid var(--color-secondary); }
-      .headingBackgroundColor--tertiary .column--alt { border-right: 0.02rem solid var(--color-tertiary); }
-
-      .column--alt.no-copy-1.no-copy-2.no-copy-3 {
-        border: unset;
-      }
-
-      .columnAltBackgroundColour {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.3;
-      }
-
-      .columnAltBackgroundColour.columnAltBackground--primary { background-color: var(--color-primary); }
-      .columnAltBackgroundColour.columnAltBackground--secondary { background-color: var(--color-secondary); }
-      .columnAltBackgroundColour.columnAltBackground--tertiary { background-color: var(--color-tertiary); }
-
-      .columnAltBackgroundColour.columnAltBackground--none,
-      .columnAltBackgroundColour.no-copy-1.no-copy-2.no-copy-3 {
-        background-color: unset;
-      }
-
-      .copy ul,
-      .copy ol,
-      .copy h5 {
-        margin-bottom: 0.14rem;
-      }
-
-      .copy p:last-child,
-      .copy ul:last-child,
-      .copy ol:last-child,
-      .copy h5:last-child {
-        margin-bottom: 0;
-      }
-
-      .copy p,
-      .copy h5 {
-        font-size: 0.31rem;
-        line-height: 1.2em;
-      }
-
-      .is-export-mode .copy p,
-      .is-export-mode .copy h5 {
-        font-size: 0.307rem;
-      }
-
-      .copy h5 {
-        font-weight: 600;
-      }
-
-      .tableHeadingColour--primary .copy h5 { color: var(--color-primary); }
-      .tableHeadingColour--secondary .copy h5 { color: var(--color-secondary); }
-      .tableHeadingColour--tertiary .copy h5 { color: var(--color-tertiary); }
-
-      .copy p + ul,
-      .copy p + ol,
-      .copy p + h5 {
-        margin-top: 0.14rem;
-      }
-
-      .copy strong {
-        font-weight: 600;
-      }
-
-      .copy ul {
-        padding-left: 0.19rem;
-      }
-
-      .copy ol {
-        padding-left: 0.26rem;
-      }
-
-      .copy ul li,
-      .copy ol li {
-        margin-bottom: 0.09rem;
-      }
-
-      .copy li {
-        position: relative;
-        font-size: 0.28rem;
-      }
-
-      .is-export-mode .copy li {
-        font-size: 0.277rem;
-      }
-
-      .copy li:last-child {
-        margin-bottom: 0;
-      }
-
-      .copy ul li:before {
-        position: absolute;
-        content: "\2022";
-        top: 0;
-        left: -0.16rem;     
-      }
-
-      .copy ol {
-        list-style-image: url('https://files.outfit.io/media_library_items/176046/BlueFit-tick%2520icon-black.svg');
-      }
-
-      .disclaimer {
-        text-align: left;
-        font-size: 0.23rem;
-        line-height: 1.2em;
-        font-weight: 700;
-      }
-
-      .footer__bottom {
-        display: flex;
-      }
-
-      .order {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex: 1;
-        padding: 0.19rem;
-        text-align: center;
-        color: var(--white);
-        background: var(--blue);
-      }
-
-      .order__title {
-        text-transform: uppercase;
-        font-size: 0.40rem;
-        line-height: 1.2em;
-        font-weight: bold;
-      }
-
-      .order__url {
-        font-size: 0.35rem;
-        line-height: 1.2em;
-      }
-
-      .ownedBy {
-        display: flex;
-        margin-left: 0.69rem;
-      }
-
-      .ownedBy__item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .ownedBy__item + .ownedBy__item { margin-left: 0.89rem; }
-
-      .ownedBy__label {
-        margin-bottom: 0.23rem;
-        font-size: 0.17rem;
-        line-height: 1.2em;
-        text-align: center;
-      }
-
-      .ownedBy__icon {
-        width: 0.86rem;
-        height: 0.86rem;
-        object-fit: contain;
-        object-position: center;
-      }
-
-      .disclaimer.overflow:before,
-      .disclaimer.overflow:after {
-        font-size: 1.2em;
-      }
-
 
       [data-crop="false"] .heading.heading--mask h1::before {
         transform: skew(-39.4deg, 0);
-      }
-
-      .copyRow {
-        display: flex;
-      }
-
-      .copyRow .table__container {
-        margin: 0;
-        flex: 1;
-      }
-
-      .copyRow .table__container + .table__container {
-        margin-left: 0.42rem;
       }
       /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
     </style>
@@ -1144,9 +820,7 @@
         data-locations-object="{{account.snippets.brandToggleObject}}"        
         class="toggleGreyscale--{{{BF_toggle-greyscale}}}{{^BF_toggle-greyscale}}no{{/BF_toggle-greyscale}}
                toggleBrandChoice--{{{BF_toggle-brand}}}
-               {{^BF_hero-image--kbpf}}no-hero-image{{/BF_hero-image--kbpf}}
-               {{^BF_heading--kbpf}}no-heading{{/BF_heading--kbpf}}
-               ctaSize--{{BF_cta-size--kbpf}}" >
+               {{^BF_heading--kbpf}}no-heading{{/BF_heading--kbpf}}" >
     <div class="page">
 
       <div class="bleed">
@@ -1166,11 +840,23 @@
               <div class="heading heading--overlay u-heading-patch">{{{BF_heading--kbpf}}}</div><!--heading--1-->
 
             </div><!--body__top-->
-            {{#BF_subheading--kbpf}}
-            <div class="body__bottom">
-              <div class="subheading" data-max-line="2"><span data-replace-from="[-]" data-replace-to=" • ">{{{BF_subheading--kbpf}}}</span></div><!--subheading-->
+            <div class="body__bottom" data-max-height="css">
+              <div class="copy__container">
+                {{#BF_call-to-action-2--kbpf}}
+                <div class="cta">
+                  <div class="cta__text" data-max-height="dynamic">{{{BF_call-to-action-2--kbpf}}}</div><!-- cta__text -->
+                </div><!-- cta -->
+                {{/BF_call-to-action-2--kbpf}}
+                <div class="copy">
+                  {{{BF_copy-new--kbpf}}}
+                </div><!-- copy -->
+              </div><!-- text__container -->
+              {{#BF_book-online--kbpf}}
+              <div class="bookOnline" data-max-line="2">
+                <span class="bookOnline__text u-heading-patch">{{{BF_book-online--kbpf}}}</span>
+                <span class="bookOnline__url" data-location-property="website">www.bayfit.com.au</span><!--url--> </div><!-- bookOnline -->
+              {{/BF_book-online--kbpf}}
             </div><!--body__bottom-->
-            {{/BF_subheading--kbpf}}
           </div><!--body-->
           <div class="footer footer--frontPage">
             <img src="https://files.outfit.io/media_library_items/174550/aquadome.svg" class="logo" data-location-property="logo"><!--logo-->
@@ -1184,208 +870,6 @@
       </div><!--bleed-->
 
     </div><!--page-->
-
-
-
-    <div class="page">
-
-      <div class="bleed">
-
-        <div class="container fit fit--backPage">
-          <div class="hero__container">
-            <div class="hero">
-              <div class="reposition-fix">{{{BF_hero-image--kbpf}}}</div><!--reposition-fix-->
-            </div><!--hero-->
-            {{#BF_call-to-action--kbpf}}
-            <div class="cta">
-              <img class="cta__image" src="https://files.outfit.io/media_library_items/175149/BlueFit-circle.svg">
-              <div class="cta__text" data-max-height="css">{{{BF_call-to-action--kbpf}}}</div><!--cta__text-->
-            </div><!--cta-->
-            {{/BF_call-to-action--kbpf}}
-          </div><!--hero__container-->
-          <div class="body body--backPage">
-            <div class="body__inner" data-max-height="css">
-              {{#collection.BF_copy--kbpf}}
-              {{#block.BF_copy-row--kbpf}}
-              <div class="copyRow">
-                {{#collection.BF_copy-row--kbpf}}
-                {{#block.BF_row--kbpf}}
-                <div class="table__container 
-                            table__container--fullWidth 
-                            headingBackgroundColor--{{heading-background-color-copy-row}}{{^heading-background-color-copy-row}}primary{{/heading-background-color-copy-row}}">
-                  {{#header-text}}
-                  <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                  {{/header-text}}
-                  {{#table-copy}}
-                  <div class="table 
-                              table--row
-                              tableBackground--{{table-background}}{{^table-background}}primary{{/table-background}}
-                              {{^table-copy}}no-copy{{/table-copy}}">
-                    <div class="table__background 
-                              {{^table-copy}}no-copy{{/table-copy}}" 
-                       style="opacity: calc({{table-opacity}}/100); {{^table-opacity}}opacity: 0.2;{{/table-opacity}}"></div><!--table__background-->
-                    <div class="column">
-                      <div class="copy u-heading-patch">{{{table-copy}}}</div><!--copy-->
-                    </div><!--column-->
-                  </div><!--table--row-->
-                  {{/table-copy}}
-                </div><!--table__container--fullWidth-->
-                {{/block.BF_row--kbpf}}
-                {{/collection.BF_copy-row--kbpf}}
-              </div><!--copy-row-->
-              {{/block.BF_copy-row--kbpf}}
-              {{#block.BF_full-width-table--kbpf}}
-              <div class="table__container 
-                          table__container--fullWidth 
-                          headingBackgroundColor--{{heading-background-color-full-width}}{{^heading-background-color-full-width}}primary{{/heading-background-color-full-width}}">
-                {{#header-text}}
-                <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                {{/header-text}}
-                {{#table-copy}}
-                <div class="table 
-                            table--fullWidth 
-                            {{^table-copy}}no-copy{{/table-copy}}">
-                  <div class="column">
-                    <div class="copy u-heading-patch">{{{table-copy}}}</div><!--copy-->
-                  </div><!--column-->
-                </div><!--table--fullWidth-->
-                {{/table-copy}}
-              </div><!--table__container--fullWidth-->
-              {{/block.BF_full-width-table--kbpf}}
-              {{#block.BF_two-column-table--kbpf}}
-              <div class="table__container table__container--twoColumnTable headingBackgroundColor--{{heading-background-color}}{{^heading-background-color}}primary{{/heading-background-color}}
-                          tableHeadingColour--{{heading-colour}}{{^heading-colour}}primary{{/heading-colour}}
-                          tableBackground--{{table-background}}{{^table-background}}primary{{/table-background}}">
-                {{#header-text}}
-                <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                {{/header-text}}
-                <div class="table 
-                            table--twoColumnTable 
-                            {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                            {{^table-copy-2}}no-copy-2{{/table-copy-2}}">
-                  <div class="table__background 
-                              {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                              {{^table-copy-2}}no-copy-2{{/table-copy-2}}" 
-                       style="opacity: calc({{table-opacity}}/100); {{^table-opacity}}opacity: 0.2;{{/table-opacity}}"></div><!--table__background-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-1}}}</div><!--copy-->
-                  </div><!--column-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-2}}}</div><!--copy-->
-                  </div><!--column-->
-                </div><!--table--twoColumnTable-->
-              </div><!--table__container--twoColumnTable-->
-              {{/block.BF_two-column-table--kbpf}}
-              {{#block.BF_three-column-table--kbpf}}
-              <div class="table__container 
-                          table__container--threeColumnTable 
-                          headingBackgroundColor--{{heading-background-color}}{{^heading-background-color}}primary{{/heading-background-color}}
-                          tableHeadingColour--{{heading-colour}}{{^heading-colour}}primary{{/heading-colour}}">
-                {{#header-text}}
-                <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                {{/header-text}}
-                <div class="table 
-                            table--threeColumnTable 
-                            {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                            {{^table-copy-2}}no-copy-2{{/table-copy-2}} 
-                            {{^table-copy-3}}no-copy-3{{/table-copy-3}}">
-                  <div class="column">
-                    <div class="copy">{{{table-copy-1}}}</div><!--copy-->
-                  </div><!--column-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-2}}}</div><!--copy-->
-                  </div><!--column-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-3}}}</div><!--copy-->
-                  </div><!--column-->
-                </div><!--table--threeColumnTable-->
-              </div><!--table__container--threeColumnTable-->
-              {{/block.BF_three-column-table--kbpf}}
-              {{#block.BF_one-third-width-table--kbpf}}
-              <div class="table__container 
-                          table__container--oneThird 
-                          headingBackgroundColor--{{heading-background-color-one-third}}{{^heading-background-color-one-third}}primary{{/heading-background-color-one-third}}
-                          tableHeadingColour--{{heading-colour}}{{^heading-colour}}primary{{/heading-colour}}">
-                {{#header-text}}
-                <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                {{/header-text}}
-                <div class="table 
-                            table--oneThird 
-                            {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                            {{^table-copy-2}}no-copy-2{{/table-copy-2}} 
-                            {{^table-copy-3}}no-copy-3{{/table-copy-3}}">
-                  <div class="column 
-                              column--alt 
-                              {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                              {{^table-copy-2}}no-copy-2{{/table-copy-2}} 
-                              {{^table-copy-3}}no-copy-3{{/table-copy-3}}">
-                    <div class="columnAltBackgroundColour 
-                                columnAltBackground--{{first-column-background-color}}{{^first-column-background-color}}primary{{/first-column-background-color}} 
-                                {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                                {{^table-copy-2}}no-copy-2{{/table-copy-2}} 
-                                {{^table-copy-3}}no-copy-3{{/table-copy-3}}"></div>
-                    <div class="copy">{{{table-copy-1}}}</div><!--copy-->
-                  </div><!--column--alt--> 
-                  <div class="column">
-                    <div class="copy">{{{table-copy-2}}}</div><!--copy-->
-                  </div><!--column-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-3}}}</div><!--copy-->
-                  </div><!--column-->
-                </div><!--table--oneThird-->
-              </div><!--table__container--oneThird-->
-              {{/block.BF_one-third-width-table--kbpf}}
-              {{#block.BF_half-width-table--kbpf}}
-              <div class="table__container 
-                          table__container--halfWidth 
-                          headingBackgroundColor--{{heading-background-color-half-width}}{{^heading-background-color-half-width}}primary{{/heading-background-color-half-width}}
-                          tableHeadingColour--{{heading-colour}}{{^heading-colour}}primary{{/heading-colour}}">
-                {{#header-text}}
-                <div class="table__heading">{{{header-text}}}</div><!--table__heading-->
-                {{/header-text}}
-                <div class="table 
-                            table--halfWidth 
-                            {{^table-copy-1}}no-copy-1{{/table-copy-1}} 
-                            {{^table-copy-2}}no-copy-2{{/table-copy-2}}">
-                  <div class="column">
-                    <div class="copy">{{{table-copy-1}}}</div><!--copy-->
-                  </div><!--column-->
-                  <div class="column">
-                    <div class="copy">{{{table-copy-2}}}</div><!--copy-->
-                  </div><!--column-->
-                </div><!--table--halfWidth-->
-              </div><!--table__container--halfWidth-->
-              {{/block.BF_half-width-table--kbpf}}
-              {{/collection.BF_copy--kbpf}}
-            </div><!--body__inner-->
-          </div><!--body-->
-          <div class="footer footer--backPage">
-            <div class="disclaimer" data-max-line="1">{{{BF_disclaimer--kbpf}}}</div><!--disclaimer-->
-            <div class="footer__bottom">
-              <div class="order">
-                <div class="order__title">book online now</div><!--order__title-->
-                <div class="order__url" data-location-property="website"></div><!--order__url-->
-              </div><!--order-->
-              <div class="ownedBy">
-                {{#BF_owned-by--kbpf}}
-                <div class="ownedBy__item">
-                  <div class="ownedBy__label">Proudly owned by</div><!--ownedBy__label-->
-                  <img src="{{{BF_owned-by--kbpf}}}" class="ownedBy__icon"><!--ownedBy__icon-->
-                </div><!--ownedBy__item-->
-                {{/BF_owned-by--kbpf}}
-                <div class="ownedBy__item ownedBy__item--logo">
-                  <div class="ownedBy__label">Proudly managed by</div><!--ownedBy__label-->
-                  <img src="https://files.outfit.io/media_library_items/175930/Bluefit-logo.svg" class="ownedBy__icon"><!--ownedBy__icon-->
-                </div><!--ownedBy__item-->
-              </div><!--ownedBy-->
-            </div><!--footer__bottom-->
-          </div><!--footer--backPage-->
-        </div><!--container fit-->
-
-      </div><!--bleed-->
-
-    </div><!--page-->
-
 
     <script>
       window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
@@ -1402,7 +886,6 @@
     <script src="js/text-fit-min.js"></script>
     <script src="js/fontfaceobserver.js"></script>
     <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
-
     <script>
       {{{account.snippets.dataReplace}}}
 
